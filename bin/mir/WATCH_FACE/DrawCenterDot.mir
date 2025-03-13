@@ -1,0 +1,108 @@
+[ @file = "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Graphics,1,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Math,2,14,18]; ]
+import Toybox.Math;
+[ @file = "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc"; @line = 4; @symbol_functiondef = [drawCenterDot,4,9,22]; @symbol_param<0> = [dc,4,23,25]; @symbol_param<0>_type<0> = [Dc,4,29,31]; @symbol_param<1> = [centerX,4,33,40]; @symbol_param<2> = [centerY,4,42,49]; ]
+function drawCenterDot(dc as Dc, centerX, centerY) as Void {
+_Users_michal_github_GarminWatchFace_WATCH_FACE_DrawCenterDot_mc_4_59_20_0_start:
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 6 4 ]
+    %tmp.1 = lgetv %dc;
+    symbol [ dc %tmp.1 6 4 6 ];
+    symbol [ setColor %tmp.2 6 7 15 ];
+    %tmp.2 = getv function %tmp.1 :setColor;
+    symbol [ COLOR_GREY_METALLIC %tmp.4 6 16 35 ];
+    %tmp.4 = getv ? :COLOR_GREY_METALLIC;
+    symbol [ Graphics %tmp.5 6 37 45 ];
+    %tmp.5 = getm $.Toybox.Graphics;
+    symbol [ COLOR_TRANSPARENT %tmp.6 6 46 63 ];
+    %tmp.6 = getv %tmp.5 :COLOR_TRANSPARENT;
+    invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 7 4 ]
+    %tmp.7 = lgetv %dc;
+    symbol [ dc %tmp.7 7 4 6 ];
+    symbol [ fillCircle %tmp.8 7 7 17 ];
+    %tmp.8 = getv function %tmp.7 :fillCircle;
+    %tmp.9 = lgetv %centerX;
+    symbol [ centerX %tmp.9 7 18 25 ];
+    %tmp.10 = lgetv %centerY;
+    symbol [ centerY %tmp.10 7 27 34 ];
+    %tmp.11 = 6;
+    invoke %tmp.7 %tmp.8(%tmp.9, %tmp.10, %tmp.11);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 10 4 ]
+    %tmp.12 = lgetv %dc;
+    symbol [ dc %tmp.12 10 4 6 ];
+    symbol [ setColor %tmp.13 10 7 15 ];
+    %tmp.13 = getv function %tmp.12 :setColor;
+    symbol [ COLOR_LIGHT_ORANGE %tmp.15 10 16 34 ];
+    %tmp.15 = getv ? :COLOR_LIGHT_ORANGE;
+    symbol [ Graphics %tmp.16 10 36 44 ];
+    %tmp.16 = getm $.Toybox.Graphics;
+    symbol [ COLOR_TRANSPARENT %tmp.17 10 45 62 ];
+    %tmp.17 = getv %tmp.16 :COLOR_TRANSPARENT;
+    invoke %tmp.12 %tmp.13(%tmp.15, %tmp.17);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 11 4 ]
+    %tmp.18 = lgetv %dc;
+    symbol [ dc %tmp.18 11 4 6 ];
+    symbol [ fillCircle %tmp.19 11 7 17 ];
+    %tmp.19 = getv function %tmp.18 :fillCircle;
+    %tmp.20 = lgetv %centerX;
+    symbol [ centerX %tmp.20 11 18 25 ];
+    %tmp.21 = lgetv %centerY;
+    symbol [ centerY %tmp.21 11 27 34 ];
+    %tmp.22 = 4;
+    invoke %tmp.18 %tmp.19(%tmp.20, %tmp.21, %tmp.22);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 14 4 ]
+    %tmp.23 = lgetv %dc;
+    symbol [ dc %tmp.23 14 4 6 ];
+    symbol [ setColor %tmp.24 14 7 15 ];
+    %tmp.24 = getv function %tmp.23 :setColor;
+    symbol [ Graphics %tmp.25 14 16 24 ];
+    %tmp.25 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLACK %tmp.26 14 25 36 ];
+    %tmp.26 = getv %tmp.25 :COLOR_BLACK;
+    symbol [ Graphics %tmp.27 14 38 46 ];
+    %tmp.27 = getm $.Toybox.Graphics;
+    symbol [ COLOR_TRANSPARENT %tmp.28 14 47 64 ];
+    %tmp.28 = getv %tmp.27 :COLOR_TRANSPARENT;
+    invoke %tmp.23 %tmp.24(%tmp.26, %tmp.28);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 15 4 ]
+    %tmp.29 = lgetv %dc;
+    symbol [ dc %tmp.29 15 4 6 ];
+    symbol [ fillCircle %tmp.30 15 7 17 ];
+    %tmp.30 = getv function %tmp.29 :fillCircle;
+    %tmp.31 = lgetv %centerX;
+    symbol [ centerX %tmp.31 15 18 25 ];
+    %tmp.32 = lgetv %centerY;
+    symbol [ centerY %tmp.32 15 27 34 ];
+    %tmp.33 = 3;
+    invoke %tmp.29 %tmp.30(%tmp.31, %tmp.32, %tmp.33);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 18 4 ]
+    %tmp.34 = lgetv %dc;
+    symbol [ dc %tmp.34 18 4 6 ];
+    symbol [ setColor %tmp.35 18 7 15 ];
+    %tmp.35 = getv function %tmp.34 :setColor;
+    symbol [ Graphics %tmp.36 18 16 24 ];
+    %tmp.36 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLACK %tmp.37 18 25 36 ];
+    %tmp.37 = getv %tmp.36 :COLOR_BLACK;
+    symbol [ Graphics %tmp.38 18 38 46 ];
+    %tmp.38 = getm $.Toybox.Graphics;
+    symbol [ COLOR_TRANSPARENT %tmp.39 18 47 64 ];
+    %tmp.39 = getv %tmp.38 :COLOR_TRANSPARENT;
+    invoke %tmp.34 %tmp.35(%tmp.37, %tmp.39);
+[ "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc" 19 4 ]
+    %tmp.40 = lgetv %dc;
+    symbol [ dc %tmp.40 19 4 6 ];
+    symbol [ fillCircle %tmp.41 19 7 17 ];
+    %tmp.41 = getv function %tmp.40 :fillCircle;
+    %tmp.42 = lgetv %centerX;
+    symbol [ centerX %tmp.42 19 18 25 ];
+    %tmp.43 = lgetv %centerY;
+    symbol [ centerY %tmp.43 19 27 34 ];
+    %tmp.44 = 2;
+    invoke %tmp.40 %tmp.41(%tmp.42, %tmp.43, %tmp.44);
+_Users_michal_github_GarminWatchFace_WATCH_FACE_DrawCenterDot_mc_4_59_20_0_stop:
+}
+[ @file = "/Users/michal/github/GarminWatchFace/WATCH_FACE/DrawCenterDot.mc"; @line = 1; ]
+<init> {
+}

@@ -1,0 +1,43 @@
+[ @file = "/Users/michal/github/GarminWatchFace/source/data/battery.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [System,1,14,20]; ]
+import Toybox.System;
+[ @file = "/Users/michal/github/GarminWatchFace/source/data/battery.mc"; @line = 6; @symbol_classdef = [BatteryData,6,6,17]; ]
+class BatteryData {
+    [ @file = "/Users/michal/github/GarminWatchFace/source/data/battery.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/data/battery.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/data/battery.mc"; @line = 7; @symbol_functiondef = [getBatteryPercentage,7,13,33]; @symbol_return<0> = [String,7,39,45]; ]
+    function getBatteryPercentage() as String {
+_Users_michal_github_GarminWatchFace_source_data_battery_mc_7_46_10_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/data/battery.mc" 8 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_data_battery_mc_7_46_10_4_start" "_Users_michal_github_GarminWatchFace_source_data_battery_mc_7_46_10_4_stop" ]
+        %stats.1 = local;
+        symbol [ stats %stats.1 8 12 17 ];
+        symbol [ System %tmp.1 8 20 26 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getSystemStats %tmp.2 8 27 41 ];
+        %tmp.2 = getv function %tmp.1 :getSystemStats;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %stats.1 %tmp.3;
+        symbol [ stats %stats.1 8 12 17 ];
+[ "/Users/michal/github/GarminWatchFace/source/data/battery.mc" 9 8 ]
+        %tmp.4 = lgetv %stats.1;
+        symbol [ stats %tmp.4 9 15 20 ];
+        symbol [ battery %tmp.5 9 21 28 ];
+        %tmp.5 = getv %tmp.4 :battery;
+        symbol [ format %tmp.6 9 29 35 ];
+        %tmp.6 = getv function %tmp.5 :format;
+        %tmp.7 = "%d";
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        %tmp.9 = "%";
+        %tmp.10 = add %tmp.8 %tmp.9;
+        ret %tmp.10;
+_Users_michal_github_GarminWatchFace_source_data_battery_mc_7_46_10_4_stop:
+    }
+}
+[ @file = "/Users/michal/github/GarminWatchFace/source/data/battery.mc"; @line = 1; ]
+<init> {
+}

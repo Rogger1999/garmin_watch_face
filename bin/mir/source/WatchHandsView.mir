@@ -1,0 +1,1805 @@
+[ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Graphics,1,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Math,2,14,18]; ]
+import Toybox.Math;
+[ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 4; @symbol_classdef = [WatchHandsView,4,6,20]; ]
+class WatchHandsView {
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 6; @position = 10; @symbol_constdef = [COLOR_LIGHT_ORANGE,6,10,28]; ]
+    const COLOR_LIGHT_ORANGE = 0xFFA500;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 7; @position = 10; @symbol_constdef = [COLOR_LIGHT_GREY,7,10,26]; ]
+    const COLOR_LIGHT_GREY = 0xD3D3D3;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 8; @position = 10; @symbol_constdef = [COLOR_RED,8,10,19]; ]
+    const COLOR_RED = 0xFF0000;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 9; @position = 10; @symbol_constdef = [COLOR_GREY_METALLIC,9,10,29]; ]
+    const COLOR_GREY_METALLIC = 0xA9A9A9;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 12; @position = 10; @symbol_constdef = [SPECIAL_MARKER_SIZE,12,10,29]; ]
+    const SPECIAL_MARKER_SIZE = 26;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 15; @symbol_functiondef = [drawHands,15,13,22]; @symbol_param<0> = [dc,15,23,25]; @symbol_param<0>_type<0> = [Dc,15,29,31]; @symbol_param<1> = [centerX,15,33,40]; @symbol_param<2> = [centerY,15,42,49]; @symbol_param<3> = [radius,15,51,57]; @symbol_param<4> = [hours,15,59,64]; @symbol_param<5> = [minutes,15,66,73]; @symbol_param<6> = [seconds,15,75,82]; ]
+    function drawHands(dc as Dc, centerX, centerY, radius, hours, minutes, seconds) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 16 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_stop" ]
+        %hourAngle.1 = local;
+        symbol [ hourAngle %hourAngle.1 16 12 21 ];
+        %tmp.1 = lgetv %hours;
+        symbol [ hours %tmp.1 16 28 33 ];
+        %tmp.2 = 12;
+        %tmp.3 = mod %tmp.1 %tmp.2;
+        %tmp.4 = 30;
+        %tmp.5 = mul %tmp.3 %tmp.4;
+        %tmp.6 = lgetv %minutes;
+        symbol [ minutes %tmp.6 16 47 54 ];
+        %tmp.7 = 2;
+        %tmp.8 = div %tmp.6 %tmp.7;
+        %tmp.9 = add %tmp.5 %tmp.8;
+        symbol [ Math %tmp.10 16 62 66 ];
+        %tmp.10 = getm $.Toybox.Math;
+        symbol [ PI %tmp.11 16 67 69 ];
+        %tmp.11 = getv %tmp.10 :PI;
+        %tmp.12 = mul %tmp.9 %tmp.11;
+        %tmp.13 = 180;
+        %tmp.14 = div %tmp.12 %tmp.13;
+        lputv %hourAngle.1 %tmp.14;
+        symbol [ hourAngle %hourAngle.1 16 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 17 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_stop" ]
+        %minuteAngle.2 = local;
+        symbol [ minuteAngle %minuteAngle.2 17 12 23 ];
+        %tmp.15 = lgetv %minutes;
+        symbol [ minutes %tmp.15 17 26 33 ];
+        %tmp.16 = 6;
+        %tmp.17 = mul %tmp.15 %tmp.16;
+        symbol [ Math %tmp.18 17 40 44 ];
+        %tmp.18 = getm $.Toybox.Math;
+        symbol [ PI %tmp.19 17 45 47 ];
+        %tmp.19 = getv %tmp.18 :PI;
+        %tmp.20 = mul %tmp.17 %tmp.19;
+        %tmp.21 = 180;
+        %tmp.22 = div %tmp.20 %tmp.21;
+        lputv %minuteAngle.2 %tmp.22;
+        symbol [ minuteAngle %minuteAngle.2 17 12 23 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 18 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_stop" ]
+        %secondAngle.3 = local;
+        symbol [ secondAngle %secondAngle.3 18 12 23 ];
+        %tmp.23 = lgetv %seconds;
+        symbol [ seconds %tmp.23 18 26 33 ];
+        %tmp.24 = 6;
+        %tmp.25 = mul %tmp.23 %tmp.24;
+        symbol [ Math %tmp.26 18 40 44 ];
+        %tmp.26 = getm $.Toybox.Math;
+        symbol [ PI %tmp.27 18 45 47 ];
+        %tmp.27 = getv %tmp.26 :PI;
+        %tmp.28 = mul %tmp.25 %tmp.27;
+        %tmp.29 = 180;
+        %tmp.30 = div %tmp.28 %tmp.29;
+        lputv %secondAngle.3 %tmp.30;
+        symbol [ secondAngle %secondAngle.3 18 12 23 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 21 8 ]
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_8_23_8_if_stmt:
+        %tmp.31 = lgetv %dc;
+        symbol [ dc %tmp.31 21 12 14 ];
+        %tmp.33 = const :setAntiAlias;
+        symbol [ setAntiAlias %tmp.33 21 20 32 const ];
+        %tmp.34 = canhazplz %tmp.31 %tmp.33;
+        bf %tmp.34 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_8_23_8_if_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_8_23_8_if_true:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_34_23_8_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 22 12 ]
+        %tmp.35 = lgetv %dc;
+        symbol [ dc %tmp.35 22 12 14 ];
+        %tmp.36 = as %tmp.35 { (interface { var setAntiAlias; }) };
+        symbol [ setAntiAlias %tmp.37 22 15 27 ];
+        %tmp.37 = getv function %tmp.36 :setAntiAlias;
+        %tmp.38 = true;
+        invoke %tmp.36 %tmp.37(%tmp.38);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_34_23_8_stop:
+        goto @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_8_23_8_if_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_21_8_23_8_if_end:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 25 8 ]
+        %tmp.39 = self;
+        symbol [ drawHourMarkers %tmp.40 25 8 23 ];
+        %tmp.40 = getv function %tmp.39 :drawHourMarkers;
+        %tmp.41 = lgetv %dc;
+        symbol [ dc %tmp.41 25 24 26 ];
+        %tmp.42 = lgetv %centerX;
+        symbol [ centerX %tmp.42 25 28 35 ];
+        %tmp.43 = lgetv %centerY;
+        symbol [ centerY %tmp.43 25 37 44 ];
+        %tmp.44 = lgetv %radius;
+        symbol [ radius %tmp.44 25 46 52 ];
+        invoke %tmp.39 %tmp.40(%tmp.41, %tmp.42, %tmp.43, %tmp.44);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 28 8 ]
+        %tmp.45 = self;
+        symbol [ drawSmoothHourHand %tmp.46 28 8 26 ];
+        %tmp.46 = getv function %tmp.45 :drawSmoothHourHand;
+        %tmp.47 = lgetv %dc;
+        symbol [ dc %tmp.47 28 27 29 ];
+        %tmp.48 = lgetv %centerX;
+        symbol [ centerX %tmp.48 28 31 38 ];
+        %tmp.49 = lgetv %centerY;
+        symbol [ centerY %tmp.49 28 40 47 ];
+        %tmp.50 = lgetv %radius;
+        symbol [ radius %tmp.50 28 49 55 ];
+        %tmp.51 = lgetv %hourAngle.1;
+        symbol [ hourAngle %tmp.51 28 57 66 ];
+        invoke %tmp.45 %tmp.46(%tmp.47, %tmp.48, %tmp.49, %tmp.50, %tmp.51);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 31 8 ]
+        %tmp.52 = self;
+        symbol [ drawSmoothMinuteHand %tmp.53 31 8 28 ];
+        %tmp.53 = getv function %tmp.52 :drawSmoothMinuteHand;
+        %tmp.54 = lgetv %dc;
+        symbol [ dc %tmp.54 31 29 31 ];
+        %tmp.55 = lgetv %centerX;
+        symbol [ centerX %tmp.55 31 33 40 ];
+        %tmp.56 = lgetv %centerY;
+        symbol [ centerY %tmp.56 31 42 49 ];
+        %tmp.57 = lgetv %radius;
+        symbol [ radius %tmp.57 31 51 57 ];
+        %tmp.58 = lgetv %minuteAngle.2;
+        symbol [ minuteAngle %tmp.58 31 59 70 ];
+        invoke %tmp.52 %tmp.53(%tmp.54, %tmp.55, %tmp.56, %tmp.57, %tmp.58);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 34 8 ]
+        %tmp.59 = self;
+        symbol [ drawSmoothSecondHand %tmp.60 34 8 28 ];
+        %tmp.60 = getv function %tmp.59 :drawSmoothSecondHand;
+        %tmp.61 = lgetv %dc;
+        symbol [ dc %tmp.61 34 29 31 ];
+        %tmp.62 = lgetv %centerX;
+        symbol [ centerX %tmp.62 34 33 40 ];
+        %tmp.63 = lgetv %centerY;
+        symbol [ centerY %tmp.63 34 42 49 ];
+        %tmp.64 = lgetv %radius;
+        symbol [ radius %tmp.64 34 51 57 ];
+        %tmp.65 = lgetv %secondAngle.3;
+        symbol [ secondAngle %tmp.65 34 59 70 ];
+        invoke %tmp.59 %tmp.60(%tmp.61, %tmp.62, %tmp.63, %tmp.64, %tmp.65);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 37 8 ]
+        %tmp.66 = self;
+        symbol [ drawCenterDot %tmp.67 37 8 21 ];
+        %tmp.67 = getv function %tmp.66 :drawCenterDot;
+        %tmp.68 = lgetv %dc;
+        symbol [ dc %tmp.68 37 22 24 ];
+        %tmp.69 = lgetv %centerX;
+        symbol [ centerX %tmp.69 37 26 33 ];
+        %tmp.70 = lgetv %centerY;
+        symbol [ centerY %tmp.70 37 35 42 ];
+        invoke %tmp.66 %tmp.67(%tmp.68, %tmp.69, %tmp.70);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 40 8 ]
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_8_42_8_if_stmt:
+        %tmp.71 = lgetv %dc;
+        symbol [ dc %tmp.71 40 12 14 ];
+        %tmp.73 = const :setAntiAlias;
+        symbol [ setAntiAlias %tmp.73 40 20 32 const ];
+        %tmp.74 = canhazplz %tmp.71 %tmp.73;
+        bf %tmp.74 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_8_42_8_if_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_8_42_8_if_true:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_34_42_8_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 41 12 ]
+        %tmp.75 = lgetv %dc;
+        symbol [ dc %tmp.75 41 12 14 ];
+        %tmp.76 = as %tmp.75 { (interface { var setAntiAlias; }) };
+        symbol [ setAntiAlias %tmp.77 41 15 27 ];
+        %tmp.77 = getv function %tmp.76 :setAntiAlias;
+        %tmp.78 = false;
+        invoke %tmp.76 %tmp.77(%tmp.78);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_34_42_8_stop:
+        goto @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_8_42_8_if_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_40_8_42_8_if_end:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_15_92_43_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 46; @symbol_functiondef = [drawHourMarkers,46,13,28]; @symbol_param<0> = [dc,46,29,31]; @symbol_param<0>_type<0> = [Dc,46,35,37]; @symbol_param<1> = [centerX,46,39,46]; @symbol_param<2> = [centerY,46,48,55]; @symbol_param<3> = [radius,46,57,63]; ]
+    function drawHourMarkers(dc as Dc, centerX, centerY, radius) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_46_73_65_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 48 8 ]
+        for @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_test @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_incr @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_init:
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_begin" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_end" ]
+        %i.1 = local;
+        symbol [ i %i.1 48 17 18 ];
+        %tmp.1 = 0;
+        lputv %i.1 %tmp.1;
+        symbol [ i %i.1 48 17 18 ];
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_test:
+        %tmp.2 = lgetv %i.1;
+        symbol [ i %tmp.2 48 24 25 ];
+        %tmp.3 = 12;
+        %tmp.4 = lt %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_begin:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 50 12 ]
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_stmt:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_16_50_41_begin:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_16_50_31_begin:
+        %tmp.5 = lgetv %i.1;
+        symbol [ i %tmp.5 50 16 17 ];
+        %tmp.6 = 3;
+        %tmp.7 = eq %tmp.5 %tmp.6;
+        bt %tmp.7 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_true;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_26_50_31_false:
+        %tmp.8 = lgetv %i.1;
+        symbol [ i %tmp.8 50 26 27 ];
+        %tmp.9 = 6;
+        %tmp.10 = eq %tmp.8 %tmp.9;
+        push %tmp.10;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_26_50_31_end:
+        %tmp.11 = phi [%tmp.7 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_16_50_31_begin] [%tmp.10 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_26_50_31_false] [%tmp.11 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_26_50_31_end];
+        bt %tmp.11 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_true;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_36_50_41_false:
+        %tmp.12 = lgetv %i.1;
+        symbol [ i %tmp.12 50 36 37 ];
+        %tmp.13 = 9;
+        %tmp.14 = eq %tmp.12 %tmp.13;
+        push %tmp.14;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_36_50_41_end:
+        %tmp.15 = phi [%tmp.11 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_16_50_41_begin] [%tmp.14 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_36_50_41_false] [%tmp.15 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_36_50_41_end];
+        bf %tmp.15 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_true:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_44_54_12_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 52 16 ]
+        %tmp.16 = self;
+        symbol [ drawSpecialHourMarker %tmp.17 52 16 37 ];
+        %tmp.17 = getv function %tmp.16 :drawSpecialHourMarker;
+        %tmp.18 = lgetv %dc;
+        symbol [ dc %tmp.18 52 38 40 ];
+        %tmp.19 = lgetv %centerX;
+        symbol [ centerX %tmp.19 52 42 49 ];
+        %tmp.20 = lgetv %centerY;
+        symbol [ centerY %tmp.20 52 51 58 ];
+        %tmp.21 = lgetv %radius;
+        symbol [ radius %tmp.21 52 60 66 ];
+        %tmp.22 = lgetv %i.1;
+        symbol [ i %tmp.22 52 68 69 ];
+        invoke %tmp.16 %tmp.17(%tmp.18, %tmp.19, %tmp.20, %tmp.21, %tmp.22);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 53 16 ]
+        goto break @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_incr;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_44_54_12_stop:
+        goto @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_50_12_54_12_if_end:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 56 12 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_stop" ]
+        %angle.2 = local;
+        symbol [ angle %angle.2 56 16 21 ];
+        %tmp.23 = lgetv %i.1;
+        symbol [ i %tmp.23 56 24 25 ];
+        %tmp.24 = 30;
+        %tmp.25 = mul %tmp.23 %tmp.24;
+        symbol [ Math %tmp.26 56 33 37 ];
+        %tmp.26 = getm $.Toybox.Math;
+        symbol [ PI %tmp.27 56 38 40 ];
+        %tmp.27 = getv %tmp.26 :PI;
+        %tmp.28 = mul %tmp.25 %tmp.27;
+        %tmp.29 = 180;
+        %tmp.30 = div %tmp.28 %tmp.29;
+        lputv %angle.2 %tmp.30;
+        symbol [ angle %angle.2 56 16 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 58 12 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_stop" ]
+        %markerX.3 = local;
+        symbol [ markerX %markerX.3 58 16 23 ];
+        %tmp.31 = lgetv %centerX;
+        symbol [ centerX %tmp.31 58 26 33 ];
+        %tmp.32 = lgetv %radius;
+        symbol [ radius %tmp.32 58 37 43 ];
+        %tmp.33 = 15;
+        %tmp.34 = sub %tmp.32 %tmp.33;
+        symbol [ Math %tmp.35 58 52 56 ];
+        %tmp.35 = getm $.Toybox.Math;
+        symbol [ sin %tmp.36 58 57 60 ];
+        %tmp.36 = getv function %tmp.35 :sin;
+        %tmp.37 = lgetv %angle.2;
+        symbol [ angle %tmp.37 58 61 66 ];
+        %tmp.38 = invoke %tmp.35 %tmp.36(%tmp.37);
+        %tmp.39 = mul %tmp.34 %tmp.38;
+        %tmp.40 = add %tmp.31 %tmp.39;
+        lputv %markerX.3 %tmp.40;
+        symbol [ markerX %markerX.3 58 16 23 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 59 12 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_stop" ]
+        %markerY.4 = local;
+        symbol [ markerY %markerY.4 59 16 23 ];
+        %tmp.41 = lgetv %centerY;
+        symbol [ centerY %tmp.41 59 26 33 ];
+        %tmp.42 = lgetv %radius;
+        symbol [ radius %tmp.42 59 37 43 ];
+        %tmp.43 = 15;
+        %tmp.44 = sub %tmp.42 %tmp.43;
+        symbol [ Math %tmp.45 59 52 56 ];
+        %tmp.45 = getm $.Toybox.Math;
+        symbol [ cos %tmp.46 59 57 60 ];
+        %tmp.46 = getv function %tmp.45 :cos;
+        %tmp.47 = lgetv %angle.2;
+        symbol [ angle %tmp.47 59 61 66 ];
+        %tmp.48 = invoke %tmp.45 %tmp.46(%tmp.47);
+        %tmp.49 = mul %tmp.44 %tmp.48;
+        %tmp.50 = sub %tmp.41 %tmp.49;
+        lputv %markerY.4 %tmp.50;
+        symbol [ markerY %markerY.4 59 16 23 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 62 12 ]
+        %tmp.51 = lgetv %dc;
+        symbol [ dc %tmp.51 62 12 14 ];
+        symbol [ setColor %tmp.52 62 15 23 ];
+        %tmp.52 = getv function %tmp.51 :setColor;
+        symbol [ Graphics %tmp.53 62 24 32 ];
+        %tmp.53 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.54 62 33 44 ];
+        %tmp.54 = getv %tmp.53 :COLOR_WHITE;
+        symbol [ Graphics %tmp.55 62 46 54 ];
+        %tmp.55 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.56 62 55 66 ];
+        %tmp.56 = getv %tmp.55 :COLOR_BLACK;
+        invoke %tmp.51 %tmp.52(%tmp.54, %tmp.56);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 63 12 ]
+        %tmp.57 = lgetv %dc;
+        symbol [ dc %tmp.57 63 12 14 ];
+        symbol [ fillCircle %tmp.58 63 15 25 ];
+        %tmp.58 = getv function %tmp.57 :fillCircle;
+        %tmp.59 = lgetv %markerX.3;
+        symbol [ markerX %tmp.59 63 26 33 ];
+        %tmp.60 = lgetv %markerY.4;
+        symbol [ markerY %tmp.60 63 35 42 ];
+        %tmp.61 = 3;
+        invoke %tmp.57 %tmp.58(%tmp.59, %tmp.60, %tmp.61);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_37_64_8_stop:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_incr:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 48 ]
+        %tmp.64 = lgetv %i.1;
+        symbol [ i %tmp.64 48 32 33 ];
+        %tmp.65 = add %tmp.64 1;
+        lputv %i.1 %tmp.65;
+        symbol [ i %i.1 48 32 33 ];
+        goto @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_test;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_48_8_64_8_for_end:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_46_73_65_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 68; @symbol_functiondef = [drawSpecialHourMarker,68,13,34]; @symbol_param<0> = [dc,68,35,37]; @symbol_param<0>_type<0> = [Dc,68,41,43]; @symbol_param<1> = [centerX,68,45,52]; @symbol_param<2> = [centerY,68,54,61]; @symbol_param<3> = [radius,68,63,69]; @symbol_param<4> = [position,68,71,79]; ]
+    function drawSpecialHourMarker(dc as Dc, centerX, centerY, radius, position) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 69 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_stop" ]
+        %angle.1 = local;
+        symbol [ angle %angle.1 69 12 17 ];
+        %tmp.1 = lgetv %position;
+        symbol [ position %tmp.1 69 20 28 ];
+        %tmp.2 = 30;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        symbol [ Math %tmp.4 69 36 40 ];
+        %tmp.4 = getm $.Toybox.Math;
+        symbol [ PI %tmp.5 69 41 43 ];
+        %tmp.5 = getv %tmp.4 :PI;
+        %tmp.6 = mul %tmp.3 %tmp.5;
+        %tmp.7 = 180;
+        %tmp.8 = div %tmp.6 %tmp.7;
+        lputv %angle.1 %tmp.8;
+        symbol [ angle %angle.1 69 12 17 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 71 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_stop" ]
+        %markerX.2 = local;
+        symbol [ markerX %markerX.2 71 12 19 ];
+        %tmp.9 = lgetv %centerX;
+        symbol [ centerX %tmp.9 71 22 29 ];
+        %tmp.10 = lgetv %radius;
+        symbol [ radius %tmp.10 71 33 39 ];
+        %tmp.11 = 25;
+        %tmp.12 = sub %tmp.10 %tmp.11;
+        symbol [ Math %tmp.13 71 48 52 ];
+        %tmp.13 = getm $.Toybox.Math;
+        symbol [ sin %tmp.14 71 53 56 ];
+        %tmp.14 = getv function %tmp.13 :sin;
+        %tmp.15 = lgetv %angle.1;
+        symbol [ angle %tmp.15 71 57 62 ];
+        %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
+        %tmp.17 = mul %tmp.12 %tmp.16;
+        %tmp.18 = add %tmp.9 %tmp.17;
+        lputv %markerX.2 %tmp.18;
+        symbol [ markerX %markerX.2 71 12 19 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 72 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_stop" ]
+        %markerY.3 = local;
+        symbol [ markerY %markerY.3 72 12 19 ];
+        %tmp.19 = lgetv %centerY;
+        symbol [ centerY %tmp.19 72 22 29 ];
+        %tmp.20 = lgetv %radius;
+        symbol [ radius %tmp.20 72 33 39 ];
+        %tmp.21 = 25;
+        %tmp.22 = sub %tmp.20 %tmp.21;
+        symbol [ Math %tmp.23 72 48 52 ];
+        %tmp.23 = getm $.Toybox.Math;
+        symbol [ cos %tmp.24 72 53 56 ];
+        %tmp.24 = getv function %tmp.23 :cos;
+        %tmp.25 = lgetv %angle.1;
+        symbol [ angle %tmp.25 72 57 62 ];
+        %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+        %tmp.27 = mul %tmp.22 %tmp.26;
+        %tmp.28 = sub %tmp.19 %tmp.27;
+        lputv %markerY.3 %tmp.28;
+        symbol [ markerY %markerY.3 72 12 19 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 74 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_stop" ]
+        %markerRadius.4 = local;
+        symbol [ markerRadius %markerRadius.4 74 12 24 ];
+        symbol [ SPECIAL_MARKER_SIZE %tmp.30 74 27 46 ];
+        %tmp.30 = getv ? :SPECIAL_MARKER_SIZE;
+        lputv %markerRadius.4 %tmp.30;
+        symbol [ markerRadius %markerRadius.4 74 12 24 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 75 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_stop" ]
+        %borderWidth.5 = local;
+        symbol [ borderWidth %borderWidth.5 75 12 23 ];
+        %tmp.31 = 3;
+        lputv %borderWidth.5 %tmp.31;
+        symbol [ borderWidth %borderWidth.5 75 12 23 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 78 8 ]
+        %tmp.32 = lgetv %dc;
+        symbol [ dc %tmp.32 78 8 10 ];
+        symbol [ setColor %tmp.33 78 11 19 ];
+        %tmp.33 = getv function %tmp.32 :setColor;
+        symbol [ COLOR_RED %tmp.35 78 20 29 ];
+        %tmp.35 = getv ? :COLOR_RED;
+        symbol [ Graphics %tmp.36 78 31 39 ];
+        %tmp.36 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.37 78 40 51 ];
+        %tmp.37 = getv %tmp.36 :COLOR_BLACK;
+        invoke %tmp.32 %tmp.33(%tmp.35, %tmp.37);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 79 8 ]
+        %tmp.38 = lgetv %dc;
+        symbol [ dc %tmp.38 79 8 10 ];
+        symbol [ drawCircle %tmp.39 79 11 21 ];
+        %tmp.39 = getv function %tmp.38 :drawCircle;
+        %tmp.40 = lgetv %markerX.2;
+        symbol [ markerX %tmp.40 79 22 29 ];
+        %tmp.41 = lgetv %markerY.3;
+        symbol [ markerY %tmp.41 79 31 38 ];
+        %tmp.42 = lgetv %markerRadius.4;
+        symbol [ markerRadius %tmp.42 79 40 52 ];
+        invoke %tmp.38 %tmp.39(%tmp.40, %tmp.41, %tmp.42);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 80 8 ]
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 80 8 10 ];
+        symbol [ drawCircle %tmp.44 80 11 21 ];
+        %tmp.44 = getv function %tmp.43 :drawCircle;
+        %tmp.45 = lgetv %markerX.2;
+        symbol [ markerX %tmp.45 80 22 29 ];
+        %tmp.46 = lgetv %markerY.3;
+        symbol [ markerY %tmp.46 80 31 38 ];
+        %tmp.47 = lgetv %markerRadius.4;
+        symbol [ markerRadius %tmp.47 80 40 52 ];
+        %tmp.48 = 1;
+        %tmp.49 = sub %tmp.47 %tmp.48;
+        invoke %tmp.43 %tmp.44(%tmp.45, %tmp.46, %tmp.49);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 81 8 ]
+        %tmp.50 = lgetv %dc;
+        symbol [ dc %tmp.50 81 8 10 ];
+        symbol [ drawCircle %tmp.51 81 11 21 ];
+        %tmp.51 = getv function %tmp.50 :drawCircle;
+        %tmp.52 = lgetv %markerX.2;
+        symbol [ markerX %tmp.52 81 22 29 ];
+        %tmp.53 = lgetv %markerY.3;
+        symbol [ markerY %tmp.53 81 31 38 ];
+        %tmp.54 = lgetv %markerRadius.4;
+        symbol [ markerRadius %tmp.54 81 40 52 ];
+        %tmp.55 = 2;
+        %tmp.56 = sub %tmp.54 %tmp.55;
+        invoke %tmp.50 %tmp.51(%tmp.52, %tmp.53, %tmp.56);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 84 8 ]
+        %tmp.57 = lgetv %dc;
+        symbol [ dc %tmp.57 84 8 10 ];
+        symbol [ setColor %tmp.58 84 11 19 ];
+        %tmp.58 = getv function %tmp.57 :setColor;
+        symbol [ Graphics %tmp.59 84 20 28 ];
+        %tmp.59 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.60 84 29 40 ];
+        %tmp.60 = getv %tmp.59 :COLOR_BLACK;
+        symbol [ Graphics %tmp.61 84 42 50 ];
+        %tmp.61 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.62 84 51 62 ];
+        %tmp.62 = getv %tmp.61 :COLOR_BLACK;
+        invoke %tmp.57 %tmp.58(%tmp.60, %tmp.62);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 85 8 ]
+        %tmp.63 = lgetv %dc;
+        symbol [ dc %tmp.63 85 8 10 ];
+        symbol [ fillCircle %tmp.64 85 11 21 ];
+        %tmp.64 = getv function %tmp.63 :fillCircle;
+        %tmp.65 = lgetv %markerX.2;
+        symbol [ markerX %tmp.65 85 22 29 ];
+        %tmp.66 = lgetv %markerY.3;
+        symbol [ markerY %tmp.66 85 31 38 ];
+        %tmp.67 = lgetv %markerRadius.4;
+        symbol [ markerRadius %tmp.67 85 40 52 ];
+        %tmp.68 = lgetv %borderWidth.5;
+        symbol [ borderWidth %tmp.68 85 55 66 ];
+        %tmp.69 = sub %tmp.67 %tmp.68;
+        invoke %tmp.63 %tmp.64(%tmp.65, %tmp.66, %tmp.69);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_68_89_86_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 89; @symbol_functiondef = [drawSmoothHourHand,89,13,31]; @symbol_param<0> = [dc,89,32,34]; @symbol_param<0>_type<0> = [Dc,89,38,40]; @symbol_param<1> = [centerX,89,42,49]; @symbol_param<2> = [centerY,89,51,58]; @symbol_param<3> = [radius,89,60,66]; @symbol_param<4> = [angle,89,68,73]; ]
+    function drawSmoothHourHand(dc as Dc, centerX, centerY, radius, angle) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 90 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_stop" ]
+        %fillLength.1 = local;
+        symbol [ fillLength %fillLength.1 90 12 22 ];
+        %tmp.1 = lgetv %radius;
+        symbol [ radius %tmp.1 90 25 31 ];
+        %tmp.2 = 0.63;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %fillLength.1 %tmp.3;
+        symbol [ fillLength %fillLength.1 90 12 22 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 91 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_stop" ]
+        %baseWidth.2 = local;
+        symbol [ baseWidth %baseWidth.2 91 12 21 ];
+        %tmp.4 = 14;
+        lputv %baseWidth.2 %tmp.4;
+        symbol [ baseWidth %baseWidth.2 91 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 92 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_stop" ]
+        %tipWidth.3 = local;
+        symbol [ tipWidth %tipWidth.3 92 12 20 ];
+        %tmp.5 = 5;
+        lputv %tipWidth.3 %tmp.5;
+        symbol [ tipWidth %tipWidth.3 92 12 20 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 95 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_stop" ]
+        %points.4 = local;
+        symbol [ points %points.4 95 12 18 ];
+        %tmp.7 = 4;
+        %tmp.6 = newa %tmp.7;
+        lputv %points.4 %tmp.6;
+        symbol [ points %points.4 95 12 18 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 98 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_stop" ]
+        %perpAngle.5 = local;
+        symbol [ perpAngle %perpAngle.5 98 12 21 ];
+        %tmp.8 = lgetv %angle;
+        symbol [ angle %tmp.8 98 24 29 ];
+        symbol [ Math %tmp.9 98 32 36 ];
+        %tmp.9 = getm $.Toybox.Math;
+        symbol [ PI %tmp.10 98 37 39 ];
+        %tmp.10 = getv %tmp.9 :PI;
+        %tmp.11 = 2;
+        %tmp.12 = div %tmp.10 %tmp.11;
+        %tmp.13 = add %tmp.8 %tmp.12;
+        lputv %perpAngle.5 %tmp.13;
+        symbol [ perpAngle %perpAngle.5 98 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 101 8 ]
+        %tmp.14 = lgetv %points.4;
+        symbol [ points %tmp.14 101 8 14 ];
+        %tmp.15 = newa 2;
+        %tmp.16 = lgetv %centerX;
+        symbol [ centerX %tmp.16 101 21 28 ];
+        %tmp.17 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.17 101 32 41 ];
+        %tmp.18 = 2;
+        %tmp.19 = div %tmp.17 %tmp.18;
+        symbol [ Math %tmp.20 101 47 51 ];
+        %tmp.20 = getm $.Toybox.Math;
+        symbol [ sin %tmp.21 101 52 55 ];
+        %tmp.21 = getv function %tmp.20 :sin;
+        %tmp.22 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.22 101 56 65 ];
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        %tmp.24 = mul %tmp.19 %tmp.23;
+        %tmp.25 = sub %tmp.16 %tmp.24;
+        %tmp.26 = dup %tmp.15;
+        %tmp.27 = aputv %tmp.26 0 %tmp.25;
+        %tmp.28 = lgetv %centerY;
+        symbol [ centerY %tmp.28 102 21 28 ];
+        %tmp.29 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.29 102 32 41 ];
+        %tmp.30 = 2;
+        %tmp.31 = div %tmp.29 %tmp.30;
+        symbol [ Math %tmp.32 102 47 51 ];
+        %tmp.32 = getm $.Toybox.Math;
+        symbol [ cos %tmp.33 102 52 55 ];
+        %tmp.33 = getv function %tmp.32 :cos;
+        %tmp.34 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.34 102 56 65 ];
+        %tmp.35 = invoke %tmp.32 %tmp.33(%tmp.34);
+        %tmp.36 = mul %tmp.31 %tmp.35;
+        %tmp.37 = add %tmp.28 %tmp.36;
+        %tmp.38 = dup %tmp.27;
+        %tmp.39 = aputv %tmp.38 1 %tmp.37;
+        %tmp.40 = 0;
+        aputv %tmp.14 %tmp.40 %tmp.39;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 105 8 ]
+        %tmp.41 = lgetv %points.4;
+        symbol [ points %tmp.41 105 8 14 ];
+        %tmp.42 = newa 2;
+        %tmp.43 = lgetv %centerX;
+        symbol [ centerX %tmp.43 105 21 28 ];
+        %tmp.44 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.44 105 32 41 ];
+        %tmp.45 = 2;
+        %tmp.46 = div %tmp.44 %tmp.45;
+        symbol [ Math %tmp.47 105 47 51 ];
+        %tmp.47 = getm $.Toybox.Math;
+        symbol [ sin %tmp.48 105 52 55 ];
+        %tmp.48 = getv function %tmp.47 :sin;
+        %tmp.49 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.49 105 56 65 ];
+        %tmp.50 = invoke %tmp.47 %tmp.48(%tmp.49);
+        %tmp.51 = mul %tmp.46 %tmp.50;
+        %tmp.52 = add %tmp.43 %tmp.51;
+        %tmp.53 = dup %tmp.42;
+        %tmp.54 = aputv %tmp.53 0 %tmp.52;
+        %tmp.55 = lgetv %centerY;
+        symbol [ centerY %tmp.55 106 21 28 ];
+        %tmp.56 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.56 106 32 41 ];
+        %tmp.57 = 2;
+        %tmp.58 = div %tmp.56 %tmp.57;
+        symbol [ Math %tmp.59 106 47 51 ];
+        %tmp.59 = getm $.Toybox.Math;
+        symbol [ cos %tmp.60 106 52 55 ];
+        %tmp.60 = getv function %tmp.59 :cos;
+        %tmp.61 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.61 106 56 65 ];
+        %tmp.62 = invoke %tmp.59 %tmp.60(%tmp.61);
+        %tmp.63 = mul %tmp.58 %tmp.62;
+        %tmp.64 = sub %tmp.55 %tmp.63;
+        %tmp.65 = dup %tmp.54;
+        %tmp.66 = aputv %tmp.65 1 %tmp.64;
+        %tmp.67 = 1;
+        aputv %tmp.41 %tmp.67 %tmp.66;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 109 8 ]
+        %tmp.68 = lgetv %points.4;
+        symbol [ points %tmp.68 109 8 14 ];
+        %tmp.69 = newa 2;
+        %tmp.70 = lgetv %centerX;
+        symbol [ centerX %tmp.70 109 21 28 ];
+        %tmp.71 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.71 109 31 41 ];
+        symbol [ Math %tmp.72 109 44 48 ];
+        %tmp.72 = getm $.Toybox.Math;
+        symbol [ sin %tmp.73 109 49 52 ];
+        %tmp.73 = getv function %tmp.72 :sin;
+        %tmp.74 = lgetv %angle;
+        symbol [ angle %tmp.74 109 53 58 ];
+        %tmp.75 = invoke %tmp.72 %tmp.73(%tmp.74);
+        %tmp.76 = mul %tmp.71 %tmp.75;
+        %tmp.77 = add %tmp.70 %tmp.76;
+        %tmp.78 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.78 109 63 71 ];
+        %tmp.79 = 2;
+        %tmp.80 = div %tmp.78 %tmp.79;
+        symbol [ Math %tmp.81 109 77 81 ];
+        %tmp.81 = getm $.Toybox.Math;
+        symbol [ sin %tmp.82 109 82 85 ];
+        %tmp.82 = getv function %tmp.81 :sin;
+        %tmp.83 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.83 109 86 95 ];
+        %tmp.84 = invoke %tmp.81 %tmp.82(%tmp.83);
+        %tmp.85 = mul %tmp.80 %tmp.84;
+        %tmp.86 = add %tmp.77 %tmp.85;
+        %tmp.87 = dup %tmp.69;
+        %tmp.88 = aputv %tmp.87 0 %tmp.86;
+        %tmp.89 = lgetv %centerY;
+        symbol [ centerY %tmp.89 110 21 28 ];
+        %tmp.90 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.90 110 31 41 ];
+        symbol [ Math %tmp.91 110 44 48 ];
+        %tmp.91 = getm $.Toybox.Math;
+        symbol [ cos %tmp.92 110 49 52 ];
+        %tmp.92 = getv function %tmp.91 :cos;
+        %tmp.93 = lgetv %angle;
+        symbol [ angle %tmp.93 110 53 58 ];
+        %tmp.94 = invoke %tmp.91 %tmp.92(%tmp.93);
+        %tmp.95 = mul %tmp.90 %tmp.94;
+        %tmp.96 = sub %tmp.89 %tmp.95;
+        %tmp.97 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.97 110 63 71 ];
+        %tmp.98 = 2;
+        %tmp.99 = div %tmp.97 %tmp.98;
+        symbol [ Math %tmp.100 110 77 81 ];
+        %tmp.100 = getm $.Toybox.Math;
+        symbol [ cos %tmp.101 110 82 85 ];
+        %tmp.101 = getv function %tmp.100 :cos;
+        %tmp.102 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.102 110 86 95 ];
+        %tmp.103 = invoke %tmp.100 %tmp.101(%tmp.102);
+        %tmp.104 = mul %tmp.99 %tmp.103;
+        %tmp.105 = sub %tmp.96 %tmp.104;
+        %tmp.106 = dup %tmp.88;
+        %tmp.107 = aputv %tmp.106 1 %tmp.105;
+        %tmp.108 = 2;
+        aputv %tmp.68 %tmp.108 %tmp.107;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 113 8 ]
+        %tmp.109 = lgetv %points.4;
+        symbol [ points %tmp.109 113 8 14 ];
+        %tmp.110 = newa 2;
+        %tmp.111 = lgetv %centerX;
+        symbol [ centerX %tmp.111 113 21 28 ];
+        %tmp.112 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.112 113 31 41 ];
+        symbol [ Math %tmp.113 113 44 48 ];
+        %tmp.113 = getm $.Toybox.Math;
+        symbol [ sin %tmp.114 113 49 52 ];
+        %tmp.114 = getv function %tmp.113 :sin;
+        %tmp.115 = lgetv %angle;
+        symbol [ angle %tmp.115 113 53 58 ];
+        %tmp.116 = invoke %tmp.113 %tmp.114(%tmp.115);
+        %tmp.117 = mul %tmp.112 %tmp.116;
+        %tmp.118 = add %tmp.111 %tmp.117;
+        %tmp.119 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.119 113 63 71 ];
+        %tmp.120 = 2;
+        %tmp.121 = div %tmp.119 %tmp.120;
+        symbol [ Math %tmp.122 113 77 81 ];
+        %tmp.122 = getm $.Toybox.Math;
+        symbol [ sin %tmp.123 113 82 85 ];
+        %tmp.123 = getv function %tmp.122 :sin;
+        %tmp.124 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.124 113 86 95 ];
+        %tmp.125 = invoke %tmp.122 %tmp.123(%tmp.124);
+        %tmp.126 = mul %tmp.121 %tmp.125;
+        %tmp.127 = sub %tmp.118 %tmp.126;
+        %tmp.128 = dup %tmp.110;
+        %tmp.129 = aputv %tmp.128 0 %tmp.127;
+        %tmp.130 = lgetv %centerY;
+        symbol [ centerY %tmp.130 114 21 28 ];
+        %tmp.131 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.131 114 31 41 ];
+        symbol [ Math %tmp.132 114 44 48 ];
+        %tmp.132 = getm $.Toybox.Math;
+        symbol [ cos %tmp.133 114 49 52 ];
+        %tmp.133 = getv function %tmp.132 :cos;
+        %tmp.134 = lgetv %angle;
+        symbol [ angle %tmp.134 114 53 58 ];
+        %tmp.135 = invoke %tmp.132 %tmp.133(%tmp.134);
+        %tmp.136 = mul %tmp.131 %tmp.135;
+        %tmp.137 = sub %tmp.130 %tmp.136;
+        %tmp.138 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.138 114 63 71 ];
+        %tmp.139 = 2;
+        %tmp.140 = div %tmp.138 %tmp.139;
+        symbol [ Math %tmp.141 114 77 81 ];
+        %tmp.141 = getm $.Toybox.Math;
+        symbol [ cos %tmp.142 114 82 85 ];
+        %tmp.142 = getv function %tmp.141 :cos;
+        %tmp.143 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.143 114 86 95 ];
+        %tmp.144 = invoke %tmp.141 %tmp.142(%tmp.143);
+        %tmp.145 = mul %tmp.140 %tmp.144;
+        %tmp.146 = add %tmp.137 %tmp.145;
+        %tmp.147 = dup %tmp.129;
+        %tmp.148 = aputv %tmp.147 1 %tmp.146;
+        %tmp.149 = 3;
+        aputv %tmp.109 %tmp.149 %tmp.148;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 117 8 ]
+        %tmp.150 = lgetv %dc;
+        symbol [ dc %tmp.150 117 8 10 ];
+        symbol [ setColor %tmp.151 117 11 19 ];
+        %tmp.151 = getv function %tmp.150 :setColor;
+        symbol [ COLOR_GREY_METALLIC %tmp.153 117 20 39 ];
+        %tmp.153 = getv ? :COLOR_GREY_METALLIC;
+        symbol [ Graphics %tmp.154 117 41 49 ];
+        %tmp.154 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.155 117 50 61 ];
+        %tmp.155 = getv %tmp.154 :COLOR_BLACK;
+        invoke %tmp.150 %tmp.151(%tmp.153, %tmp.155);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 121 8 ]
+        %tmp.156 = lgetv %dc;
+        symbol [ dc %tmp.156 121 8 10 ];
+        symbol [ fillPolygon %tmp.157 121 11 22 ];
+        %tmp.157 = getv function %tmp.156 :fillPolygon;
+        %tmp.158 = newa 3;
+        %tmp.159 = newa 2;
+        %tmp.160 = lgetv %points.4;
+        symbol [ points %tmp.160 121 25 31 ];
+        %tmp.161 = 0;
+        %tmp.162 = agetv %tmp.160 %tmp.161;
+        %tmp.163 = 0;
+        %tmp.164 = agetv %tmp.162 %tmp.163;
+        %tmp.165 = dup %tmp.159;
+        %tmp.166 = aputv %tmp.165 0 %tmp.164;
+        %tmp.167 = lgetv %points.4;
+        symbol [ points %tmp.167 121 39 45 ];
+        %tmp.168 = 0;
+        %tmp.169 = agetv %tmp.167 %tmp.168;
+        %tmp.170 = 1;
+        %tmp.171 = agetv %tmp.169 %tmp.170;
+        %tmp.172 = dup %tmp.166;
+        %tmp.173 = aputv %tmp.172 1 %tmp.171;
+        %tmp.174 = dup %tmp.158;
+        %tmp.175 = aputv %tmp.174 0 %tmp.173;
+        %tmp.176 = newa 2;
+        %tmp.177 = lgetv %points.4;
+        symbol [ points %tmp.177 122 26 32 ];
+        %tmp.178 = 1;
+        %tmp.179 = agetv %tmp.177 %tmp.178;
+        %tmp.180 = 0;
+        %tmp.181 = agetv %tmp.179 %tmp.180;
+        %tmp.182 = dup %tmp.176;
+        %tmp.183 = aputv %tmp.182 0 %tmp.181;
+        %tmp.184 = lgetv %points.4;
+        symbol [ points %tmp.184 122 40 46 ];
+        %tmp.185 = 1;
+        %tmp.186 = agetv %tmp.184 %tmp.185;
+        %tmp.187 = 1;
+        %tmp.188 = agetv %tmp.186 %tmp.187;
+        %tmp.189 = dup %tmp.183;
+        %tmp.190 = aputv %tmp.189 1 %tmp.188;
+        %tmp.191 = dup %tmp.175;
+        %tmp.192 = aputv %tmp.191 1 %tmp.190;
+        %tmp.193 = newa 2;
+        %tmp.194 = lgetv %points.4;
+        symbol [ points %tmp.194 123 26 32 ];
+        %tmp.195 = 2;
+        %tmp.196 = agetv %tmp.194 %tmp.195;
+        %tmp.197 = 0;
+        %tmp.198 = agetv %tmp.196 %tmp.197;
+        %tmp.199 = dup %tmp.193;
+        %tmp.200 = aputv %tmp.199 0 %tmp.198;
+        %tmp.201 = lgetv %points.4;
+        symbol [ points %tmp.201 123 40 46 ];
+        %tmp.202 = 2;
+        %tmp.203 = agetv %tmp.201 %tmp.202;
+        %tmp.204 = 1;
+        %tmp.205 = agetv %tmp.203 %tmp.204;
+        %tmp.206 = dup %tmp.200;
+        %tmp.207 = aputv %tmp.206 1 %tmp.205;
+        %tmp.208 = dup %tmp.192;
+        %tmp.209 = aputv %tmp.208 2 %tmp.207;
+        invoke %tmp.156 %tmp.157(%tmp.209);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 126 8 ]
+        %tmp.210 = lgetv %dc;
+        symbol [ dc %tmp.210 126 8 10 ];
+        symbol [ fillPolygon %tmp.211 126 11 22 ];
+        %tmp.211 = getv function %tmp.210 :fillPolygon;
+        %tmp.212 = newa 3;
+        %tmp.213 = newa 2;
+        %tmp.214 = lgetv %points.4;
+        symbol [ points %tmp.214 126 25 31 ];
+        %tmp.215 = 0;
+        %tmp.216 = agetv %tmp.214 %tmp.215;
+        %tmp.217 = 0;
+        %tmp.218 = agetv %tmp.216 %tmp.217;
+        %tmp.219 = dup %tmp.213;
+        %tmp.220 = aputv %tmp.219 0 %tmp.218;
+        %tmp.221 = lgetv %points.4;
+        symbol [ points %tmp.221 126 39 45 ];
+        %tmp.222 = 0;
+        %tmp.223 = agetv %tmp.221 %tmp.222;
+        %tmp.224 = 1;
+        %tmp.225 = agetv %tmp.223 %tmp.224;
+        %tmp.226 = dup %tmp.220;
+        %tmp.227 = aputv %tmp.226 1 %tmp.225;
+        %tmp.228 = dup %tmp.212;
+        %tmp.229 = aputv %tmp.228 0 %tmp.227;
+        %tmp.230 = newa 2;
+        %tmp.231 = lgetv %points.4;
+        symbol [ points %tmp.231 127 26 32 ];
+        %tmp.232 = 2;
+        %tmp.233 = agetv %tmp.231 %tmp.232;
+        %tmp.234 = 0;
+        %tmp.235 = agetv %tmp.233 %tmp.234;
+        %tmp.236 = dup %tmp.230;
+        %tmp.237 = aputv %tmp.236 0 %tmp.235;
+        %tmp.238 = lgetv %points.4;
+        symbol [ points %tmp.238 127 40 46 ];
+        %tmp.239 = 2;
+        %tmp.240 = agetv %tmp.238 %tmp.239;
+        %tmp.241 = 1;
+        %tmp.242 = agetv %tmp.240 %tmp.241;
+        %tmp.243 = dup %tmp.237;
+        %tmp.244 = aputv %tmp.243 1 %tmp.242;
+        %tmp.245 = dup %tmp.229;
+        %tmp.246 = aputv %tmp.245 1 %tmp.244;
+        %tmp.247 = newa 2;
+        %tmp.248 = lgetv %points.4;
+        symbol [ points %tmp.248 128 26 32 ];
+        %tmp.249 = 3;
+        %tmp.250 = agetv %tmp.248 %tmp.249;
+        %tmp.251 = 0;
+        %tmp.252 = agetv %tmp.250 %tmp.251;
+        %tmp.253 = dup %tmp.247;
+        %tmp.254 = aputv %tmp.253 0 %tmp.252;
+        %tmp.255 = lgetv %points.4;
+        symbol [ points %tmp.255 128 40 46 ];
+        %tmp.256 = 3;
+        %tmp.257 = agetv %tmp.255 %tmp.256;
+        %tmp.258 = 1;
+        %tmp.259 = agetv %tmp.257 %tmp.258;
+        %tmp.260 = dup %tmp.254;
+        %tmp.261 = aputv %tmp.260 1 %tmp.259;
+        %tmp.262 = dup %tmp.246;
+        %tmp.263 = aputv %tmp.262 2 %tmp.261;
+        invoke %tmp.210 %tmp.211(%tmp.263);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 131 8 ]
+        %tmp.264 = lgetv %dc;
+        symbol [ dc %tmp.264 131 8 10 ];
+        symbol [ setColor %tmp.265 131 11 19 ];
+        %tmp.265 = getv function %tmp.264 :setColor;
+        symbol [ COLOR_LIGHT_GREY %tmp.267 131 20 36 ];
+        %tmp.267 = getv ? :COLOR_LIGHT_GREY;
+        symbol [ Graphics %tmp.268 131 38 46 ];
+        %tmp.268 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.269 131 47 58 ];
+        %tmp.269 = getv %tmp.268 :COLOR_BLACK;
+        invoke %tmp.264 %tmp.265(%tmp.267, %tmp.269);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 132 8 ]
+        %tmp.270 = lgetv %dc;
+        symbol [ dc %tmp.270 132 8 10 ];
+        symbol [ setPenWidth %tmp.271 132 11 22 ];
+        %tmp.271 = getv function %tmp.270 :setPenWidth;
+        %tmp.272 = 1;
+        invoke %tmp.270 %tmp.271(%tmp.272);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 135 8 ]
+        for @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_test @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_incr @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_init:
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_begin" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_end" ]
+        %i.6 = local;
+        symbol [ i %i.6 135 17 18 ];
+        %tmp.273 = 0;
+        lputv %i.6 %tmp.273;
+        symbol [ i %i.6 135 17 18 ];
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_test:
+        %tmp.274 = lgetv %i.6;
+        symbol [ i %tmp.274 135 24 25 ];
+        %tmp.275 = 4;
+        %tmp.276 = lt %tmp.274 %tmp.275;
+        bf %tmp.276 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_begin:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_36_141_8_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 136 12 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_36_141_8_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_36_141_8_stop" ]
+        %nextIndex.7 = local;
+        symbol [ nextIndex %nextIndex.7 136 16 25 ];
+        %tmp.277 = lgetv %i.6;
+        symbol [ i %tmp.277 136 29 30 ];
+        %tmp.278 = 1;
+        %tmp.279 = add %tmp.277 %tmp.278;
+        %tmp.280 = 4;
+        %tmp.281 = mod %tmp.279 %tmp.280;
+        lputv %nextIndex.7 %tmp.281;
+        symbol [ nextIndex %nextIndex.7 136 16 25 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 137 12 ]
+        %tmp.282 = lgetv %dc;
+        symbol [ dc %tmp.282 137 12 14 ];
+        symbol [ drawLine %tmp.283 137 15 23 ];
+        %tmp.283 = getv function %tmp.282 :drawLine;
+        %tmp.284 = lgetv %points.4;
+        symbol [ points %tmp.284 138 16 22 ];
+        %tmp.285 = lgetv %i.6;
+        symbol [ i %tmp.285 138 23 24 ];
+        %tmp.286 = agetv %tmp.284 %tmp.285;
+        %tmp.287 = 0;
+        %tmp.288 = agetv %tmp.286 %tmp.287;
+        %tmp.289 = lgetv %points.4;
+        symbol [ points %tmp.289 138 30 36 ];
+        %tmp.290 = lgetv %i.6;
+        symbol [ i %tmp.290 138 37 38 ];
+        %tmp.291 = agetv %tmp.289 %tmp.290;
+        %tmp.292 = 1;
+        %tmp.293 = agetv %tmp.291 %tmp.292;
+        %tmp.294 = lgetv %points.4;
+        symbol [ points %tmp.294 139 16 22 ];
+        %tmp.295 = lgetv %nextIndex.7;
+        symbol [ nextIndex %tmp.295 139 23 32 ];
+        %tmp.296 = agetv %tmp.294 %tmp.295;
+        %tmp.297 = 0;
+        %tmp.298 = agetv %tmp.296 %tmp.297;
+        %tmp.299 = lgetv %points.4;
+        symbol [ points %tmp.299 139 38 44 ];
+        %tmp.300 = lgetv %nextIndex.7;
+        symbol [ nextIndex %tmp.300 139 45 54 ];
+        %tmp.301 = agetv %tmp.299 %tmp.300;
+        %tmp.302 = 1;
+        %tmp.303 = agetv %tmp.301 %tmp.302;
+        invoke %tmp.282 %tmp.283(%tmp.288, %tmp.293, %tmp.298, %tmp.303);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_36_141_8_stop:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_incr:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 135 ]
+        %tmp.306 = lgetv %i.6;
+        symbol [ i %tmp.306 135 31 32 ];
+        %tmp.307 = add %tmp.306 1;
+        lputv %i.6 %tmp.307;
+        symbol [ i %i.6 135 31 32 ];
+        goto @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_test;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_135_8_141_8_for_end:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_89_83_142_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 145; @symbol_functiondef = [drawSmoothMinuteHand,145,13,33]; @symbol_param<0> = [dc,145,34,36]; @symbol_param<0>_type<0> = [Dc,145,40,42]; @symbol_param<1> = [centerX,145,44,51]; @symbol_param<2> = [centerY,145,53,60]; @symbol_param<3> = [radius,145,62,68]; @symbol_param<4> = [angle,145,70,75]; ]
+    function drawSmoothMinuteHand(dc as Dc, centerX, centerY, radius, angle) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 146 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_stop" ]
+        %fillLength.1 = local;
+        symbol [ fillLength %fillLength.1 146 12 22 ];
+        %tmp.1 = lgetv %radius;
+        symbol [ radius %tmp.1 146 25 31 ];
+        %tmp.2 = 0.86;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %fillLength.1 %tmp.3;
+        symbol [ fillLength %fillLength.1 146 12 22 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 147 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_stop" ]
+        %baseWidth.2 = local;
+        symbol [ baseWidth %baseWidth.2 147 12 21 ];
+        %tmp.4 = 9;
+        lputv %baseWidth.2 %tmp.4;
+        symbol [ baseWidth %baseWidth.2 147 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 148 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_stop" ]
+        %tipWidth.3 = local;
+        symbol [ tipWidth %tipWidth.3 148 12 20 ];
+        %tmp.5 = 4;
+        lputv %tipWidth.3 %tmp.5;
+        symbol [ tipWidth %tipWidth.3 148 12 20 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 151 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_stop" ]
+        %points.4 = local;
+        symbol [ points %points.4 151 12 18 ];
+        %tmp.7 = 4;
+        %tmp.6 = newa %tmp.7;
+        lputv %points.4 %tmp.6;
+        symbol [ points %points.4 151 12 18 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 154 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_stop" ]
+        %perpAngle.5 = local;
+        symbol [ perpAngle %perpAngle.5 154 12 21 ];
+        %tmp.8 = lgetv %angle;
+        symbol [ angle %tmp.8 154 24 29 ];
+        symbol [ Math %tmp.9 154 32 36 ];
+        %tmp.9 = getm $.Toybox.Math;
+        symbol [ PI %tmp.10 154 37 39 ];
+        %tmp.10 = getv %tmp.9 :PI;
+        %tmp.11 = 2;
+        %tmp.12 = div %tmp.10 %tmp.11;
+        %tmp.13 = add %tmp.8 %tmp.12;
+        lputv %perpAngle.5 %tmp.13;
+        symbol [ perpAngle %perpAngle.5 154 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 157 8 ]
+        %tmp.14 = lgetv %points.4;
+        symbol [ points %tmp.14 157 8 14 ];
+        %tmp.15 = newa 2;
+        %tmp.16 = lgetv %centerX;
+        symbol [ centerX %tmp.16 157 21 28 ];
+        %tmp.17 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.17 157 32 41 ];
+        %tmp.18 = 2;
+        %tmp.19 = div %tmp.17 %tmp.18;
+        symbol [ Math %tmp.20 157 47 51 ];
+        %tmp.20 = getm $.Toybox.Math;
+        symbol [ sin %tmp.21 157 52 55 ];
+        %tmp.21 = getv function %tmp.20 :sin;
+        %tmp.22 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.22 157 56 65 ];
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        %tmp.24 = mul %tmp.19 %tmp.23;
+        %tmp.25 = sub %tmp.16 %tmp.24;
+        %tmp.26 = dup %tmp.15;
+        %tmp.27 = aputv %tmp.26 0 %tmp.25;
+        %tmp.28 = lgetv %centerY;
+        symbol [ centerY %tmp.28 158 21 28 ];
+        %tmp.29 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.29 158 32 41 ];
+        %tmp.30 = 2;
+        %tmp.31 = div %tmp.29 %tmp.30;
+        symbol [ Math %tmp.32 158 47 51 ];
+        %tmp.32 = getm $.Toybox.Math;
+        symbol [ cos %tmp.33 158 52 55 ];
+        %tmp.33 = getv function %tmp.32 :cos;
+        %tmp.34 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.34 158 56 65 ];
+        %tmp.35 = invoke %tmp.32 %tmp.33(%tmp.34);
+        %tmp.36 = mul %tmp.31 %tmp.35;
+        %tmp.37 = add %tmp.28 %tmp.36;
+        %tmp.38 = dup %tmp.27;
+        %tmp.39 = aputv %tmp.38 1 %tmp.37;
+        %tmp.40 = 0;
+        aputv %tmp.14 %tmp.40 %tmp.39;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 161 8 ]
+        %tmp.41 = lgetv %points.4;
+        symbol [ points %tmp.41 161 8 14 ];
+        %tmp.42 = newa 2;
+        %tmp.43 = lgetv %centerX;
+        symbol [ centerX %tmp.43 161 21 28 ];
+        %tmp.44 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.44 161 32 41 ];
+        %tmp.45 = 2;
+        %tmp.46 = div %tmp.44 %tmp.45;
+        symbol [ Math %tmp.47 161 47 51 ];
+        %tmp.47 = getm $.Toybox.Math;
+        symbol [ sin %tmp.48 161 52 55 ];
+        %tmp.48 = getv function %tmp.47 :sin;
+        %tmp.49 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.49 161 56 65 ];
+        %tmp.50 = invoke %tmp.47 %tmp.48(%tmp.49);
+        %tmp.51 = mul %tmp.46 %tmp.50;
+        %tmp.52 = add %tmp.43 %tmp.51;
+        %tmp.53 = dup %tmp.42;
+        %tmp.54 = aputv %tmp.53 0 %tmp.52;
+        %tmp.55 = lgetv %centerY;
+        symbol [ centerY %tmp.55 162 21 28 ];
+        %tmp.56 = lgetv %baseWidth.2;
+        symbol [ baseWidth %tmp.56 162 32 41 ];
+        %tmp.57 = 2;
+        %tmp.58 = div %tmp.56 %tmp.57;
+        symbol [ Math %tmp.59 162 47 51 ];
+        %tmp.59 = getm $.Toybox.Math;
+        symbol [ cos %tmp.60 162 52 55 ];
+        %tmp.60 = getv function %tmp.59 :cos;
+        %tmp.61 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.61 162 56 65 ];
+        %tmp.62 = invoke %tmp.59 %tmp.60(%tmp.61);
+        %tmp.63 = mul %tmp.58 %tmp.62;
+        %tmp.64 = sub %tmp.55 %tmp.63;
+        %tmp.65 = dup %tmp.54;
+        %tmp.66 = aputv %tmp.65 1 %tmp.64;
+        %tmp.67 = 1;
+        aputv %tmp.41 %tmp.67 %tmp.66;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 165 8 ]
+        %tmp.68 = lgetv %points.4;
+        symbol [ points %tmp.68 165 8 14 ];
+        %tmp.69 = newa 2;
+        %tmp.70 = lgetv %centerX;
+        symbol [ centerX %tmp.70 165 21 28 ];
+        %tmp.71 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.71 165 31 41 ];
+        symbol [ Math %tmp.72 165 44 48 ];
+        %tmp.72 = getm $.Toybox.Math;
+        symbol [ sin %tmp.73 165 49 52 ];
+        %tmp.73 = getv function %tmp.72 :sin;
+        %tmp.74 = lgetv %angle;
+        symbol [ angle %tmp.74 165 53 58 ];
+        %tmp.75 = invoke %tmp.72 %tmp.73(%tmp.74);
+        %tmp.76 = mul %tmp.71 %tmp.75;
+        %tmp.77 = add %tmp.70 %tmp.76;
+        %tmp.78 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.78 165 63 71 ];
+        %tmp.79 = 2;
+        %tmp.80 = div %tmp.78 %tmp.79;
+        symbol [ Math %tmp.81 165 77 81 ];
+        %tmp.81 = getm $.Toybox.Math;
+        symbol [ sin %tmp.82 165 82 85 ];
+        %tmp.82 = getv function %tmp.81 :sin;
+        %tmp.83 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.83 165 86 95 ];
+        %tmp.84 = invoke %tmp.81 %tmp.82(%tmp.83);
+        %tmp.85 = mul %tmp.80 %tmp.84;
+        %tmp.86 = add %tmp.77 %tmp.85;
+        %tmp.87 = dup %tmp.69;
+        %tmp.88 = aputv %tmp.87 0 %tmp.86;
+        %tmp.89 = lgetv %centerY;
+        symbol [ centerY %tmp.89 166 21 28 ];
+        %tmp.90 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.90 166 31 41 ];
+        symbol [ Math %tmp.91 166 44 48 ];
+        %tmp.91 = getm $.Toybox.Math;
+        symbol [ cos %tmp.92 166 49 52 ];
+        %tmp.92 = getv function %tmp.91 :cos;
+        %tmp.93 = lgetv %angle;
+        symbol [ angle %tmp.93 166 53 58 ];
+        %tmp.94 = invoke %tmp.91 %tmp.92(%tmp.93);
+        %tmp.95 = mul %tmp.90 %tmp.94;
+        %tmp.96 = sub %tmp.89 %tmp.95;
+        %tmp.97 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.97 166 63 71 ];
+        %tmp.98 = 2;
+        %tmp.99 = div %tmp.97 %tmp.98;
+        symbol [ Math %tmp.100 166 77 81 ];
+        %tmp.100 = getm $.Toybox.Math;
+        symbol [ cos %tmp.101 166 82 85 ];
+        %tmp.101 = getv function %tmp.100 :cos;
+        %tmp.102 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.102 166 86 95 ];
+        %tmp.103 = invoke %tmp.100 %tmp.101(%tmp.102);
+        %tmp.104 = mul %tmp.99 %tmp.103;
+        %tmp.105 = sub %tmp.96 %tmp.104;
+        %tmp.106 = dup %tmp.88;
+        %tmp.107 = aputv %tmp.106 1 %tmp.105;
+        %tmp.108 = 2;
+        aputv %tmp.68 %tmp.108 %tmp.107;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 169 8 ]
+        %tmp.109 = lgetv %points.4;
+        symbol [ points %tmp.109 169 8 14 ];
+        %tmp.110 = newa 2;
+        %tmp.111 = lgetv %centerX;
+        symbol [ centerX %tmp.111 169 21 28 ];
+        %tmp.112 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.112 169 31 41 ];
+        symbol [ Math %tmp.113 169 44 48 ];
+        %tmp.113 = getm $.Toybox.Math;
+        symbol [ sin %tmp.114 169 49 52 ];
+        %tmp.114 = getv function %tmp.113 :sin;
+        %tmp.115 = lgetv %angle;
+        symbol [ angle %tmp.115 169 53 58 ];
+        %tmp.116 = invoke %tmp.113 %tmp.114(%tmp.115);
+        %tmp.117 = mul %tmp.112 %tmp.116;
+        %tmp.118 = add %tmp.111 %tmp.117;
+        %tmp.119 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.119 169 63 71 ];
+        %tmp.120 = 2;
+        %tmp.121 = div %tmp.119 %tmp.120;
+        symbol [ Math %tmp.122 169 77 81 ];
+        %tmp.122 = getm $.Toybox.Math;
+        symbol [ sin %tmp.123 169 82 85 ];
+        %tmp.123 = getv function %tmp.122 :sin;
+        %tmp.124 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.124 169 86 95 ];
+        %tmp.125 = invoke %tmp.122 %tmp.123(%tmp.124);
+        %tmp.126 = mul %tmp.121 %tmp.125;
+        %tmp.127 = sub %tmp.118 %tmp.126;
+        %tmp.128 = dup %tmp.110;
+        %tmp.129 = aputv %tmp.128 0 %tmp.127;
+        %tmp.130 = lgetv %centerY;
+        symbol [ centerY %tmp.130 170 21 28 ];
+        %tmp.131 = lgetv %fillLength.1;
+        symbol [ fillLength %tmp.131 170 31 41 ];
+        symbol [ Math %tmp.132 170 44 48 ];
+        %tmp.132 = getm $.Toybox.Math;
+        symbol [ cos %tmp.133 170 49 52 ];
+        %tmp.133 = getv function %tmp.132 :cos;
+        %tmp.134 = lgetv %angle;
+        symbol [ angle %tmp.134 170 53 58 ];
+        %tmp.135 = invoke %tmp.132 %tmp.133(%tmp.134);
+        %tmp.136 = mul %tmp.131 %tmp.135;
+        %tmp.137 = sub %tmp.130 %tmp.136;
+        %tmp.138 = lgetv %tipWidth.3;
+        symbol [ tipWidth %tmp.138 170 63 71 ];
+        %tmp.139 = 2;
+        %tmp.140 = div %tmp.138 %tmp.139;
+        symbol [ Math %tmp.141 170 77 81 ];
+        %tmp.141 = getm $.Toybox.Math;
+        symbol [ cos %tmp.142 170 82 85 ];
+        %tmp.142 = getv function %tmp.141 :cos;
+        %tmp.143 = lgetv %perpAngle.5;
+        symbol [ perpAngle %tmp.143 170 86 95 ];
+        %tmp.144 = invoke %tmp.141 %tmp.142(%tmp.143);
+        %tmp.145 = mul %tmp.140 %tmp.144;
+        %tmp.146 = add %tmp.137 %tmp.145;
+        %tmp.147 = dup %tmp.129;
+        %tmp.148 = aputv %tmp.147 1 %tmp.146;
+        %tmp.149 = 3;
+        aputv %tmp.109 %tmp.149 %tmp.148;
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 173 8 ]
+        %tmp.150 = lgetv %dc;
+        symbol [ dc %tmp.150 173 8 10 ];
+        symbol [ setColor %tmp.151 173 11 19 ];
+        %tmp.151 = getv function %tmp.150 :setColor;
+        symbol [ COLOR_LIGHT_ORANGE %tmp.153 173 20 38 ];
+        %tmp.153 = getv ? :COLOR_LIGHT_ORANGE;
+        symbol [ Graphics %tmp.154 173 40 48 ];
+        %tmp.154 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.155 173 49 60 ];
+        %tmp.155 = getv %tmp.154 :COLOR_BLACK;
+        invoke %tmp.150 %tmp.151(%tmp.153, %tmp.155);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 177 8 ]
+        %tmp.156 = lgetv %dc;
+        symbol [ dc %tmp.156 177 8 10 ];
+        symbol [ fillPolygon %tmp.157 177 11 22 ];
+        %tmp.157 = getv function %tmp.156 :fillPolygon;
+        %tmp.158 = newa 3;
+        %tmp.159 = newa 2;
+        %tmp.160 = lgetv %points.4;
+        symbol [ points %tmp.160 177 25 31 ];
+        %tmp.161 = 0;
+        %tmp.162 = agetv %tmp.160 %tmp.161;
+        %tmp.163 = 0;
+        %tmp.164 = agetv %tmp.162 %tmp.163;
+        %tmp.165 = dup %tmp.159;
+        %tmp.166 = aputv %tmp.165 0 %tmp.164;
+        %tmp.167 = lgetv %points.4;
+        symbol [ points %tmp.167 177 39 45 ];
+        %tmp.168 = 0;
+        %tmp.169 = agetv %tmp.167 %tmp.168;
+        %tmp.170 = 1;
+        %tmp.171 = agetv %tmp.169 %tmp.170;
+        %tmp.172 = dup %tmp.166;
+        %tmp.173 = aputv %tmp.172 1 %tmp.171;
+        %tmp.174 = dup %tmp.158;
+        %tmp.175 = aputv %tmp.174 0 %tmp.173;
+        %tmp.176 = newa 2;
+        %tmp.177 = lgetv %points.4;
+        symbol [ points %tmp.177 178 26 32 ];
+        %tmp.178 = 1;
+        %tmp.179 = agetv %tmp.177 %tmp.178;
+        %tmp.180 = 0;
+        %tmp.181 = agetv %tmp.179 %tmp.180;
+        %tmp.182 = dup %tmp.176;
+        %tmp.183 = aputv %tmp.182 0 %tmp.181;
+        %tmp.184 = lgetv %points.4;
+        symbol [ points %tmp.184 178 40 46 ];
+        %tmp.185 = 1;
+        %tmp.186 = agetv %tmp.184 %tmp.185;
+        %tmp.187 = 1;
+        %tmp.188 = agetv %tmp.186 %tmp.187;
+        %tmp.189 = dup %tmp.183;
+        %tmp.190 = aputv %tmp.189 1 %tmp.188;
+        %tmp.191 = dup %tmp.175;
+        %tmp.192 = aputv %tmp.191 1 %tmp.190;
+        %tmp.193 = newa 2;
+        %tmp.194 = lgetv %points.4;
+        symbol [ points %tmp.194 179 26 32 ];
+        %tmp.195 = 2;
+        %tmp.196 = agetv %tmp.194 %tmp.195;
+        %tmp.197 = 0;
+        %tmp.198 = agetv %tmp.196 %tmp.197;
+        %tmp.199 = dup %tmp.193;
+        %tmp.200 = aputv %tmp.199 0 %tmp.198;
+        %tmp.201 = lgetv %points.4;
+        symbol [ points %tmp.201 179 40 46 ];
+        %tmp.202 = 2;
+        %tmp.203 = agetv %tmp.201 %tmp.202;
+        %tmp.204 = 1;
+        %tmp.205 = agetv %tmp.203 %tmp.204;
+        %tmp.206 = dup %tmp.200;
+        %tmp.207 = aputv %tmp.206 1 %tmp.205;
+        %tmp.208 = dup %tmp.192;
+        %tmp.209 = aputv %tmp.208 2 %tmp.207;
+        invoke %tmp.156 %tmp.157(%tmp.209);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 182 8 ]
+        %tmp.210 = lgetv %dc;
+        symbol [ dc %tmp.210 182 8 10 ];
+        symbol [ fillPolygon %tmp.211 182 11 22 ];
+        %tmp.211 = getv function %tmp.210 :fillPolygon;
+        %tmp.212 = newa 3;
+        %tmp.213 = newa 2;
+        %tmp.214 = lgetv %points.4;
+        symbol [ points %tmp.214 182 25 31 ];
+        %tmp.215 = 0;
+        %tmp.216 = agetv %tmp.214 %tmp.215;
+        %tmp.217 = 0;
+        %tmp.218 = agetv %tmp.216 %tmp.217;
+        %tmp.219 = dup %tmp.213;
+        %tmp.220 = aputv %tmp.219 0 %tmp.218;
+        %tmp.221 = lgetv %points.4;
+        symbol [ points %tmp.221 182 39 45 ];
+        %tmp.222 = 0;
+        %tmp.223 = agetv %tmp.221 %tmp.222;
+        %tmp.224 = 1;
+        %tmp.225 = agetv %tmp.223 %tmp.224;
+        %tmp.226 = dup %tmp.220;
+        %tmp.227 = aputv %tmp.226 1 %tmp.225;
+        %tmp.228 = dup %tmp.212;
+        %tmp.229 = aputv %tmp.228 0 %tmp.227;
+        %tmp.230 = newa 2;
+        %tmp.231 = lgetv %points.4;
+        symbol [ points %tmp.231 183 26 32 ];
+        %tmp.232 = 2;
+        %tmp.233 = agetv %tmp.231 %tmp.232;
+        %tmp.234 = 0;
+        %tmp.235 = agetv %tmp.233 %tmp.234;
+        %tmp.236 = dup %tmp.230;
+        %tmp.237 = aputv %tmp.236 0 %tmp.235;
+        %tmp.238 = lgetv %points.4;
+        symbol [ points %tmp.238 183 40 46 ];
+        %tmp.239 = 2;
+        %tmp.240 = agetv %tmp.238 %tmp.239;
+        %tmp.241 = 1;
+        %tmp.242 = agetv %tmp.240 %tmp.241;
+        %tmp.243 = dup %tmp.237;
+        %tmp.244 = aputv %tmp.243 1 %tmp.242;
+        %tmp.245 = dup %tmp.229;
+        %tmp.246 = aputv %tmp.245 1 %tmp.244;
+        %tmp.247 = newa 2;
+        %tmp.248 = lgetv %points.4;
+        symbol [ points %tmp.248 184 26 32 ];
+        %tmp.249 = 3;
+        %tmp.250 = agetv %tmp.248 %tmp.249;
+        %tmp.251 = 0;
+        %tmp.252 = agetv %tmp.250 %tmp.251;
+        %tmp.253 = dup %tmp.247;
+        %tmp.254 = aputv %tmp.253 0 %tmp.252;
+        %tmp.255 = lgetv %points.4;
+        symbol [ points %tmp.255 184 40 46 ];
+        %tmp.256 = 3;
+        %tmp.257 = agetv %tmp.255 %tmp.256;
+        %tmp.258 = 1;
+        %tmp.259 = agetv %tmp.257 %tmp.258;
+        %tmp.260 = dup %tmp.254;
+        %tmp.261 = aputv %tmp.260 1 %tmp.259;
+        %tmp.262 = dup %tmp.246;
+        %tmp.263 = aputv %tmp.262 2 %tmp.261;
+        invoke %tmp.210 %tmp.211(%tmp.263);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 187 8 ]
+        %tmp.264 = lgetv %dc;
+        symbol [ dc %tmp.264 187 8 10 ];
+        symbol [ setColor %tmp.265 187 11 19 ];
+        %tmp.265 = getv function %tmp.264 :setColor;
+        symbol [ COLOR_LIGHT_GREY %tmp.267 187 20 36 ];
+        %tmp.267 = getv ? :COLOR_LIGHT_GREY;
+        symbol [ Graphics %tmp.268 187 38 46 ];
+        %tmp.268 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.269 187 47 58 ];
+        %tmp.269 = getv %tmp.268 :COLOR_BLACK;
+        invoke %tmp.264 %tmp.265(%tmp.267, %tmp.269);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 188 8 ]
+        %tmp.270 = lgetv %dc;
+        symbol [ dc %tmp.270 188 8 10 ];
+        symbol [ setPenWidth %tmp.271 188 11 22 ];
+        %tmp.271 = getv function %tmp.270 :setPenWidth;
+        %tmp.272 = 1;
+        invoke %tmp.270 %tmp.271(%tmp.272);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 191 8 ]
+        for @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_test @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_incr @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_init:
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_begin" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_end" ]
+        %i.6 = local;
+        symbol [ i %i.6 191 17 18 ];
+        %tmp.273 = 0;
+        lputv %i.6 %tmp.273;
+        symbol [ i %i.6 191 17 18 ];
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_test:
+        %tmp.274 = lgetv %i.6;
+        symbol [ i %tmp.274 191 24 25 ];
+        %tmp.275 = 4;
+        %tmp.276 = lt %tmp.274 %tmp.275;
+        bf %tmp.276 @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_end;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_begin:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_36_197_8_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 192 12 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_36_197_8_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_36_197_8_stop" ]
+        %nextIndex.7 = local;
+        symbol [ nextIndex %nextIndex.7 192 16 25 ];
+        %tmp.277 = lgetv %i.6;
+        symbol [ i %tmp.277 192 29 30 ];
+        %tmp.278 = 1;
+        %tmp.279 = add %tmp.277 %tmp.278;
+        %tmp.280 = 4;
+        %tmp.281 = mod %tmp.279 %tmp.280;
+        lputv %nextIndex.7 %tmp.281;
+        symbol [ nextIndex %nextIndex.7 192 16 25 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 193 12 ]
+        %tmp.282 = lgetv %dc;
+        symbol [ dc %tmp.282 193 12 14 ];
+        symbol [ drawLine %tmp.283 193 15 23 ];
+        %tmp.283 = getv function %tmp.282 :drawLine;
+        %tmp.284 = lgetv %points.4;
+        symbol [ points %tmp.284 194 16 22 ];
+        %tmp.285 = lgetv %i.6;
+        symbol [ i %tmp.285 194 23 24 ];
+        %tmp.286 = agetv %tmp.284 %tmp.285;
+        %tmp.287 = 0;
+        %tmp.288 = agetv %tmp.286 %tmp.287;
+        %tmp.289 = lgetv %points.4;
+        symbol [ points %tmp.289 194 30 36 ];
+        %tmp.290 = lgetv %i.6;
+        symbol [ i %tmp.290 194 37 38 ];
+        %tmp.291 = agetv %tmp.289 %tmp.290;
+        %tmp.292 = 1;
+        %tmp.293 = agetv %tmp.291 %tmp.292;
+        %tmp.294 = lgetv %points.4;
+        symbol [ points %tmp.294 195 16 22 ];
+        %tmp.295 = lgetv %nextIndex.7;
+        symbol [ nextIndex %tmp.295 195 23 32 ];
+        %tmp.296 = agetv %tmp.294 %tmp.295;
+        %tmp.297 = 0;
+        %tmp.298 = agetv %tmp.296 %tmp.297;
+        %tmp.299 = lgetv %points.4;
+        symbol [ points %tmp.299 195 38 44 ];
+        %tmp.300 = lgetv %nextIndex.7;
+        symbol [ nextIndex %tmp.300 195 45 54 ];
+        %tmp.301 = agetv %tmp.299 %tmp.300;
+        %tmp.302 = 1;
+        %tmp.303 = agetv %tmp.301 %tmp.302;
+        invoke %tmp.282 %tmp.283(%tmp.288, %tmp.293, %tmp.298, %tmp.303);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_36_197_8_stop:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_incr:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 191 ]
+        %tmp.306 = lgetv %i.6;
+        symbol [ i %tmp.306 191 31 32 ];
+        %tmp.307 = add %tmp.306 1;
+        lputv %i.6 %tmp.307;
+        symbol [ i %i.6 191 31 32 ];
+        goto @_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_test;
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_191_8_197_8_for_end:
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_145_85_198_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 201; @symbol_functiondef = [drawSmoothSecondHand,201,13,33]; @symbol_param<0> = [dc,201,34,36]; @symbol_param<0>_type<0> = [Dc,201,40,42]; @symbol_param<1> = [centerX,201,44,51]; @symbol_param<2> = [centerY,201,53,60]; @symbol_param<3> = [radius,201,62,68]; @symbol_param<4> = [angle,201,70,75]; ]
+    function drawSmoothSecondHand(dc as Dc, centerX, centerY, radius, angle) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 202 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_stop" ]
+        %secondHandLength.1 = local;
+        symbol [ secondHandLength %secondHandLength.1 202 12 28 ];
+        %tmp.1 = lgetv %radius;
+        symbol [ radius %tmp.1 202 31 37 ];
+        %tmp.2 = 0.9;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %secondHandLength.1 %tmp.3;
+        symbol [ secondHandLength %secondHandLength.1 202 12 28 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 203 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_stop" ]
+        %secondHandTailLength.2 = local;
+        symbol [ secondHandTailLength %secondHandTailLength.2 203 12 32 ];
+        %tmp.4 = lgetv %radius;
+        symbol [ radius %tmp.4 203 35 41 ];
+        %tmp.5 = 0.2;
+        %tmp.6 = mul %tmp.4 %tmp.5;
+        lputv %secondHandTailLength.2 %tmp.6;
+        symbol [ secondHandTailLength %secondHandTailLength.2 203 12 32 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 204 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_stop" ]
+        %handWidth.3 = local;
+        symbol [ handWidth %handWidth.3 204 12 21 ];
+        %tmp.7 = 1;
+        lputv %handWidth.3 %tmp.7;
+        symbol [ handWidth %handWidth.3 204 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 205 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_start" "_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_stop" ]
+        %tailWidth.4 = local;
+        symbol [ tailWidth %tailWidth.4 205 12 21 ];
+        %tmp.8 = 2;
+        lputv %tailWidth.4 %tmp.8;
+        symbol [ tailWidth %tailWidth.4 205 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 208 8 ]
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 208 8 10 ];
+        symbol [ setClip %tmp.10 208 11 18 ];
+        %tmp.10 = getv function %tmp.9 :setClip;
+        %tmp.11 = lgetv %centerX;
+        symbol [ centerX %tmp.11 209 12 19 ];
+        %tmp.12 = lgetv %radius;
+        symbol [ radius %tmp.12 209 22 28 ];
+        %tmp.13 = sub %tmp.11 %tmp.12;
+        %tmp.14 = lgetv %centerY;
+        symbol [ centerY %tmp.14 210 12 19 ];
+        %tmp.15 = lgetv %radius;
+        symbol [ radius %tmp.15 210 22 28 ];
+        %tmp.16 = sub %tmp.14 %tmp.15;
+        %tmp.17 = lgetv %radius;
+        symbol [ radius %tmp.17 211 12 18 ];
+        %tmp.18 = 2;
+        %tmp.19 = mul %tmp.17 %tmp.18;
+        %tmp.20 = lgetv %radius;
+        symbol [ radius %tmp.20 212 12 18 ];
+        %tmp.21 = 2;
+        %tmp.22 = mul %tmp.20 %tmp.21;
+        invoke %tmp.9 %tmp.10(%tmp.13, %tmp.16, %tmp.19, %tmp.22);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 216 8 ]
+        %tmp.23 = lgetv %dc;
+        symbol [ dc %tmp.23 216 8 10 ];
+        symbol [ setColor %tmp.24 216 11 19 ];
+        %tmp.24 = getv function %tmp.23 :setColor;
+        symbol [ COLOR_RED %tmp.26 216 20 29 ];
+        %tmp.26 = getv ? :COLOR_RED;
+        symbol [ Graphics %tmp.27 216 31 39 ];
+        %tmp.27 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.28 216 40 51 ];
+        %tmp.28 = getv %tmp.27 :COLOR_BLACK;
+        invoke %tmp.23 %tmp.24(%tmp.26, %tmp.28);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 217 8 ]
+        %tmp.29 = lgetv %dc;
+        symbol [ dc %tmp.29 217 8 10 ];
+        symbol [ setPenWidth %tmp.30 217 11 22 ];
+        %tmp.30 = getv function %tmp.29 :setPenWidth;
+        %tmp.31 = lgetv %handWidth.3;
+        symbol [ handWidth %tmp.31 217 23 32 ];
+        invoke %tmp.29 %tmp.30(%tmp.31);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 218 8 ]
+        %tmp.32 = lgetv %dc;
+        symbol [ dc %tmp.32 218 8 10 ];
+        symbol [ drawLine %tmp.33 218 11 19 ];
+        %tmp.33 = getv function %tmp.32 :drawLine;
+        %tmp.34 = lgetv %centerX;
+        symbol [ centerX %tmp.34 219 12 19 ];
+        %tmp.35 = lgetv %centerY;
+        symbol [ centerY %tmp.35 220 12 19 ];
+        %tmp.36 = lgetv %centerX;
+        symbol [ centerX %tmp.36 221 12 19 ];
+        %tmp.37 = lgetv %secondHandLength.1;
+        symbol [ secondHandLength %tmp.37 221 22 38 ];
+        symbol [ Math %tmp.38 221 41 45 ];
+        %tmp.38 = getm $.Toybox.Math;
+        symbol [ sin %tmp.39 221 46 49 ];
+        %tmp.39 = getv function %tmp.38 :sin;
+        %tmp.40 = lgetv %angle;
+        symbol [ angle %tmp.40 221 50 55 ];
+        %tmp.41 = invoke %tmp.38 %tmp.39(%tmp.40);
+        %tmp.42 = mul %tmp.37 %tmp.41;
+        %tmp.43 = add %tmp.36 %tmp.42;
+        %tmp.44 = lgetv %centerY;
+        symbol [ centerY %tmp.44 222 12 19 ];
+        %tmp.45 = lgetv %secondHandLength.1;
+        symbol [ secondHandLength %tmp.45 222 22 38 ];
+        symbol [ Math %tmp.46 222 41 45 ];
+        %tmp.46 = getm $.Toybox.Math;
+        symbol [ cos %tmp.47 222 46 49 ];
+        %tmp.47 = getv function %tmp.46 :cos;
+        %tmp.48 = lgetv %angle;
+        symbol [ angle %tmp.48 222 50 55 ];
+        %tmp.49 = invoke %tmp.46 %tmp.47(%tmp.48);
+        %tmp.50 = mul %tmp.45 %tmp.49;
+        %tmp.51 = sub %tmp.44 %tmp.50;
+        invoke %tmp.32 %tmp.33(%tmp.34, %tmp.35, %tmp.43, %tmp.51);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 226 8 ]
+        %tmp.52 = lgetv %dc;
+        symbol [ dc %tmp.52 226 8 10 ];
+        symbol [ setPenWidth %tmp.53 226 11 22 ];
+        %tmp.53 = getv function %tmp.52 :setPenWidth;
+        %tmp.54 = lgetv %tailWidth.4;
+        symbol [ tailWidth %tmp.54 226 23 32 ];
+        invoke %tmp.52 %tmp.53(%tmp.54);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 227 8 ]
+        %tmp.55 = lgetv %dc;
+        symbol [ dc %tmp.55 227 8 10 ];
+        symbol [ drawLine %tmp.56 227 11 19 ];
+        %tmp.56 = getv function %tmp.55 :drawLine;
+        %tmp.57 = lgetv %centerX;
+        symbol [ centerX %tmp.57 228 12 19 ];
+        %tmp.58 = lgetv %centerY;
+        symbol [ centerY %tmp.58 229 12 19 ];
+        %tmp.59 = lgetv %centerX;
+        symbol [ centerX %tmp.59 230 12 19 ];
+        %tmp.60 = lgetv %secondHandTailLength.2;
+        symbol [ secondHandTailLength %tmp.60 230 22 42 ];
+        symbol [ Math %tmp.61 230 45 49 ];
+        %tmp.61 = getm $.Toybox.Math;
+        symbol [ sin %tmp.62 230 50 53 ];
+        %tmp.62 = getv function %tmp.61 :sin;
+        %tmp.63 = lgetv %angle;
+        symbol [ angle %tmp.63 230 54 59 ];
+        %tmp.64 = invoke %tmp.61 %tmp.62(%tmp.63);
+        %tmp.65 = mul %tmp.60 %tmp.64;
+        %tmp.66 = sub %tmp.59 %tmp.65;
+        %tmp.67 = lgetv %centerY;
+        symbol [ centerY %tmp.67 231 12 19 ];
+        %tmp.68 = lgetv %secondHandTailLength.2;
+        symbol [ secondHandTailLength %tmp.68 231 22 42 ];
+        symbol [ Math %tmp.69 231 45 49 ];
+        %tmp.69 = getm $.Toybox.Math;
+        symbol [ cos %tmp.70 231 50 53 ];
+        %tmp.70 = getv function %tmp.69 :cos;
+        %tmp.71 = lgetv %angle;
+        symbol [ angle %tmp.71 231 54 59 ];
+        %tmp.72 = invoke %tmp.69 %tmp.70(%tmp.71);
+        %tmp.73 = mul %tmp.68 %tmp.72;
+        %tmp.74 = add %tmp.67 %tmp.73;
+        invoke %tmp.55 %tmp.56(%tmp.57, %tmp.58, %tmp.66, %tmp.74);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 235 8 ]
+        %tmp.75 = lgetv %dc;
+        symbol [ dc %tmp.75 235 8 10 ];
+        symbol [ fillCircle %tmp.76 235 11 21 ];
+        %tmp.76 = getv function %tmp.75 :fillCircle;
+        %tmp.77 = lgetv %centerX;
+        symbol [ centerX %tmp.77 236 12 19 ];
+        %tmp.78 = lgetv %secondHandLength.1;
+        symbol [ secondHandLength %tmp.78 236 22 38 ];
+        symbol [ Math %tmp.79 236 41 45 ];
+        %tmp.79 = getm $.Toybox.Math;
+        symbol [ sin %tmp.80 236 46 49 ];
+        %tmp.80 = getv function %tmp.79 :sin;
+        %tmp.81 = lgetv %angle;
+        symbol [ angle %tmp.81 236 50 55 ];
+        %tmp.82 = invoke %tmp.79 %tmp.80(%tmp.81);
+        %tmp.83 = mul %tmp.78 %tmp.82;
+        %tmp.84 = add %tmp.77 %tmp.83;
+        %tmp.85 = lgetv %centerY;
+        symbol [ centerY %tmp.85 237 12 19 ];
+        %tmp.86 = lgetv %secondHandLength.1;
+        symbol [ secondHandLength %tmp.86 237 22 38 ];
+        symbol [ Math %tmp.87 237 41 45 ];
+        %tmp.87 = getm $.Toybox.Math;
+        symbol [ cos %tmp.88 237 46 49 ];
+        %tmp.88 = getv function %tmp.87 :cos;
+        %tmp.89 = lgetv %angle;
+        symbol [ angle %tmp.89 237 50 55 ];
+        %tmp.90 = invoke %tmp.87 %tmp.88(%tmp.89);
+        %tmp.91 = mul %tmp.86 %tmp.90;
+        %tmp.92 = sub %tmp.85 %tmp.91;
+        %tmp.93 = 3;
+        invoke %tmp.75 %tmp.76(%tmp.84, %tmp.92, %tmp.93);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 242 8 ]
+        %tmp.94 = lgetv %dc;
+        symbol [ dc %tmp.94 242 8 10 ];
+        symbol [ clearClip %tmp.95 242 11 20 ];
+        %tmp.95 = getv function %tmp.94 :clearClip;
+        invoke %tmp.94 %tmp.95();
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_201_85_243_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 246; @symbol_functiondef = [drawCenterDot,246,13,26]; @symbol_param<0> = [dc,246,27,29]; @symbol_param<0>_type<0> = [Dc,246,33,35]; @symbol_param<1> = [centerX,246,37,44]; @symbol_param<2> = [centerY,246,46,53]; ]
+    function drawCenterDot(dc as Dc, centerX, centerY) as Void {
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_246_63_262_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 248 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 248 8 10 ];
+        symbol [ setColor %tmp.2 248 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ COLOR_GREY_METALLIC %tmp.4 248 20 39 ];
+        %tmp.4 = getv ? :COLOR_GREY_METALLIC;
+        symbol [ Graphics %tmp.5 248 41 49 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.6 248 50 61 ];
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 249 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 249 8 10 ];
+        symbol [ fillCircle %tmp.8 249 11 21 ];
+        %tmp.8 = getv function %tmp.7 :fillCircle;
+        %tmp.9 = lgetv %centerX;
+        symbol [ centerX %tmp.9 249 22 29 ];
+        %tmp.10 = lgetv %centerY;
+        symbol [ centerY %tmp.10 249 31 38 ];
+        %tmp.11 = 9;
+        invoke %tmp.7 %tmp.8(%tmp.9, %tmp.10, %tmp.11);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 252 8 ]
+        %tmp.12 = lgetv %dc;
+        symbol [ dc %tmp.12 252 8 10 ];
+        symbol [ setColor %tmp.13 252 11 19 ];
+        %tmp.13 = getv function %tmp.12 :setColor;
+        symbol [ Graphics %tmp.14 252 20 28 ];
+        %tmp.14 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.15 252 29 40 ];
+        %tmp.15 = getv %tmp.14 :COLOR_BLACK;
+        symbol [ Graphics %tmp.16 252 42 50 ];
+        %tmp.16 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.17 252 51 62 ];
+        %tmp.17 = getv %tmp.16 :COLOR_BLACK;
+        invoke %tmp.12 %tmp.13(%tmp.15, %tmp.17);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 253 8 ]
+        %tmp.18 = lgetv %dc;
+        symbol [ dc %tmp.18 253 8 10 ];
+        symbol [ fillCircle %tmp.19 253 11 21 ];
+        %tmp.19 = getv function %tmp.18 :fillCircle;
+        %tmp.20 = lgetv %centerX;
+        symbol [ centerX %tmp.20 253 22 29 ];
+        %tmp.21 = lgetv %centerY;
+        symbol [ centerY %tmp.21 253 31 38 ];
+        %tmp.22 = 7;
+        invoke %tmp.18 %tmp.19(%tmp.20, %tmp.21, %tmp.22);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 256 8 ]
+        %tmp.23 = lgetv %dc;
+        symbol [ dc %tmp.23 256 8 10 ];
+        symbol [ setColor %tmp.24 256 11 19 ];
+        %tmp.24 = getv function %tmp.23 :setColor;
+        symbol [ COLOR_LIGHT_ORANGE %tmp.26 256 20 38 ];
+        %tmp.26 = getv ? :COLOR_LIGHT_ORANGE;
+        symbol [ Graphics %tmp.27 256 40 48 ];
+        %tmp.27 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.28 256 49 60 ];
+        %tmp.28 = getv %tmp.27 :COLOR_BLACK;
+        invoke %tmp.23 %tmp.24(%tmp.26, %tmp.28);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 257 8 ]
+        %tmp.29 = lgetv %dc;
+        symbol [ dc %tmp.29 257 8 10 ];
+        symbol [ fillCircle %tmp.30 257 11 21 ];
+        %tmp.30 = getv function %tmp.29 :fillCircle;
+        %tmp.31 = lgetv %centerX;
+        symbol [ centerX %tmp.31 257 22 29 ];
+        %tmp.32 = lgetv %centerY;
+        symbol [ centerY %tmp.32 257 31 38 ];
+        %tmp.33 = 5;
+        invoke %tmp.29 %tmp.30(%tmp.31, %tmp.32, %tmp.33);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 260 8 ]
+        %tmp.34 = lgetv %dc;
+        symbol [ dc %tmp.34 260 8 10 ];
+        symbol [ setColor %tmp.35 260 11 19 ];
+        %tmp.35 = getv function %tmp.34 :setColor;
+        symbol [ Graphics %tmp.36 260 20 28 ];
+        %tmp.36 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.37 260 29 40 ];
+        %tmp.37 = getv %tmp.36 :COLOR_BLACK;
+        symbol [ Graphics %tmp.38 260 42 50 ];
+        %tmp.38 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.39 260 51 62 ];
+        %tmp.39 = getv %tmp.38 :COLOR_BLACK;
+        invoke %tmp.34 %tmp.35(%tmp.37, %tmp.39);
+[ "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc" 261 8 ]
+        %tmp.40 = lgetv %dc;
+        symbol [ dc %tmp.40 261 8 10 ];
+        symbol [ fillCircle %tmp.41 261 11 21 ];
+        %tmp.41 = getv function %tmp.40 :fillCircle;
+        %tmp.42 = lgetv %centerX;
+        symbol [ centerX %tmp.42 261 22 29 ];
+        %tmp.43 = lgetv %centerY;
+        symbol [ centerY %tmp.43 261 31 38 ];
+        %tmp.44 = 2;
+        invoke %tmp.40 %tmp.41(%tmp.42, %tmp.43, %tmp.44);
+_Users_michal_github_GarminWatchFace_source_WatchHandsView_mc_246_63_262_4_stop:
+    }
+}
+[ @file = "/Users/michal/github/GarminWatchFace/source/WatchHandsView.mc"; @line = 1; ]
+<init> {
+}

@@ -1,0 +1,556 @@
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Application,1,14,25]; ]
+import Toybox.Application;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Graphics,2,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [Lang,3,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 4; @symbol_importdef<0> = [Toybox,4,7,13]; @symbol_importdef<1> = [System,4,14,20]; ]
+import Toybox.System;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 5; @symbol_importdef<0> = [Toybox,5,7,13]; @symbol_importdef<1> = [WatchUi,5,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 6; @symbol_importdef<0> = [Toybox,6,7,13]; @symbol_importdef<1> = [ActivityMonitor,6,14,29]; ]
+import Toybox.ActivityMonitor;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 7; @symbol_importdef<0> = [Toybox,7,7,13]; @symbol_importdef<1> = [Activity,7,14,22]; ]
+import Toybox.Activity;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 8; @symbol_importdef<0> = [Toybox,8,7,13]; @symbol_importdef<1> = [Time,8,14,18]; ]
+import Toybox.Time;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 9; @symbol_importdef<0> = [Toybox,9,7,13]; @symbol_importdef<1> = [Time,9,14,18]; @symbol_importdef<2> = [Gregorian,9,19,28]; ]
+import Toybox.Time.Gregorian;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 10; @symbol_importdef<0> = [Toybox,10,7,13]; @symbol_importdef<1> = [Sensor,10,14,20]; ]
+import Toybox.Sensor;
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 12; @symbol_classdef = [GarminWatchFaceView,12,6,25]; @symbol_extends<0> = [WatchUi,12,34,41]; @symbol_extends<1> = [WatchFace,12,42,51]; ]
+class GarminWatchFaceView extends WatchUi.WatchFace {
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 12; ]
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 12; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 13; @position = 16; @symbol_vardef = [_watchHandsView,13,16,31]; ]
+    private
+    var _watchHandsView;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 15; @position = 10; @symbol_constdef = [COLOR_LIGHT_ORANGE,15,10,28]; ]
+    const COLOR_LIGHT_ORANGE = 0xFFA500;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 16; @position = 10; @symbol_constdef = [COLOR_METALLIC_GREY,16,10,29]; ]
+    const COLOR_METALLIC_GREY = 0xA9A9A9;
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 18; @symbol_functiondef = [initialize,18,13,23]; ]
+    function initialize() as Void {
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_18_26_21_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 19 8 ]
+        symbol [ WatchFace %tmp.2 19 8 17 ];
+        %tmp.2 = getv ? :WatchFace;
+        symbol [ initialize %tmp.3 19 18 28 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 20 8 ]
+        symbol [ WatchHandsView %tmp.7 20 30 44 ];
+        %tmp.7 = getv ? :WatchHandsView;
+        %tmp.4 = newc %tmp.7 ();
+        symbol [ _watchHandsView ? 20 8 23 ];
+        putv self :_watchHandsView %tmp.4;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_18_26_21_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 23; @symbol_functiondef = [onUpdate,23,13,21]; @symbol_param<0> = [dc,23,22,24]; @symbol_param<0>_type<0> = [Dc,23,28,30]; ]
+    function onUpdate(dc as Dc) as Void {
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 25 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 25 8 10 ];
+        symbol [ setColor %tmp.2 25 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 25 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.4 25 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_BLACK;
+        symbol [ Graphics %tmp.5 25 42 50 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.6 25 51 62 ];
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 26 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 26 8 10 ];
+        symbol [ clear %tmp.8 26 11 16 ];
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 28 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %centerX.1 = local;
+        symbol [ centerX %centerX.1 28 12 19 ];
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 28 22 24 ];
+        symbol [ getWidth %tmp.10 28 25 33 ];
+        %tmp.10 = getv function %tmp.9 :getWidth;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        %tmp.12 = 2;
+        %tmp.13 = div %tmp.11 %tmp.12;
+        lputv %centerX.1 %tmp.13;
+        symbol [ centerX %centerX.1 28 12 19 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 29 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %centerY.2 = local;
+        symbol [ centerY %centerY.2 29 12 19 ];
+        %tmp.14 = lgetv %dc;
+        symbol [ dc %tmp.14 29 22 24 ];
+        symbol [ getHeight %tmp.15 29 25 34 ];
+        %tmp.15 = getv function %tmp.14 :getHeight;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        %tmp.17 = 2;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        lputv %centerY.2 %tmp.18;
+        symbol [ centerY %centerY.2 29 12 19 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 30 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %radius.3 = local;
+        symbol [ radius %radius.3 30 12 18 ];
+        %tmp.19 = lgetv %centerX.1;
+        symbol [ centerX %tmp.19 30 21 28 ];
+        %tmp.20 = 15;
+        %tmp.21 = sub %tmp.19 %tmp.20;
+        lputv %radius.3 %tmp.21;
+        symbol [ radius %radius.3 30 12 18 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 33 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %clockInfo.4 = local;
+        symbol [ clockInfo %clockInfo.4 33 12 21 ];
+        symbol [ System %tmp.22 33 24 30 ];
+        %tmp.22 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.23 33 31 43 ];
+        %tmp.23 = getv function %tmp.22 :getClockTime;
+        %tmp.24 = invoke %tmp.22 %tmp.23();
+        lputv %clockInfo.4 %tmp.24;
+        symbol [ clockInfo %clockInfo.4 33 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 34 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %hours.5 = local;
+        symbol [ hours %hours.5 34 12 17 ];
+        %tmp.25 = lgetv %clockInfo.4;
+        symbol [ clockInfo %tmp.25 34 20 29 ];
+        symbol [ hour %tmp.26 34 30 34 ];
+        %tmp.26 = getv %tmp.25 :hour;
+        lputv %hours.5 %tmp.26;
+        symbol [ hours %hours.5 34 12 17 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 35 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %minutes.6 = local;
+        symbol [ minutes %minutes.6 35 12 19 ];
+        %tmp.27 = lgetv %clockInfo.4;
+        symbol [ clockInfo %tmp.27 35 22 31 ];
+        symbol [ min %tmp.28 35 32 35 ];
+        %tmp.28 = getv %tmp.27 :min;
+        lputv %minutes.6 %tmp.28;
+        symbol [ minutes %minutes.6 35 12 19 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 36 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop" ]
+        %seconds.7 = local;
+        symbol [ seconds %seconds.7 36 12 19 ];
+        %tmp.29 = lgetv %clockInfo.4;
+        symbol [ clockInfo %tmp.29 36 22 31 ];
+        symbol [ sec %tmp.30 36 32 35 ];
+        %tmp.30 = getv %tmp.29 :sec;
+        lputv %seconds.7 %tmp.30;
+        symbol [ seconds %seconds.7 36 12 19 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 39 8 ]
+        symbol [ _watchHandsView %tmp.32 39 8 23 ];
+        %tmp.32 = getv ? :_watchHandsView;
+        symbol [ drawHands %tmp.33 39 24 33 ];
+        %tmp.33 = getv function %tmp.32 :drawHands;
+        %tmp.34 = lgetv %dc;
+        symbol [ dc %tmp.34 39 34 36 ];
+        %tmp.35 = lgetv %centerX.1;
+        symbol [ centerX %tmp.35 39 38 45 ];
+        %tmp.36 = lgetv %centerY.2;
+        symbol [ centerY %tmp.36 39 47 54 ];
+        %tmp.37 = lgetv %radius.3;
+        symbol [ radius %tmp.37 39 56 62 ];
+        %tmp.38 = lgetv %hours.5;
+        symbol [ hours %tmp.38 39 64 69 ];
+        %tmp.39 = lgetv %minutes.6;
+        symbol [ minutes %tmp.39 39 71 78 ];
+        %tmp.40 = lgetv %seconds.7;
+        symbol [ seconds %tmp.40 39 80 87 ];
+        invoke %tmp.32 %tmp.33(%tmp.34, %tmp.35, %tmp.36, %tmp.37, %tmp.38, %tmp.39, %tmp.40);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 42 8 ]
+        %tmp.41 = self;
+        symbol [ drawBatteryIcon %tmp.42 42 8 23 ];
+        %tmp.42 = getv function %tmp.41 :drawBatteryIcon;
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 42 24 26 ];
+        %tmp.44 = lgetv %centerX.1;
+        symbol [ centerX %tmp.44 42 28 35 ];
+        %tmp.45 = lgetv %centerY.2;
+        symbol [ centerY %tmp.45 42 37 44 ];
+        %tmp.46 = lgetv %radius.3;
+        symbol [ radius %tmp.46 42 46 52 ];
+        invoke %tmp.41 %tmp.42(%tmp.43, %tmp.44, %tmp.45, %tmp.46);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 45 8 ]
+        %tmp.47 = self;
+        symbol [ drawStepsIcon %tmp.48 45 8 21 ];
+        %tmp.48 = getv function %tmp.47 :drawStepsIcon;
+        %tmp.49 = lgetv %dc;
+        symbol [ dc %tmp.49 45 22 24 ];
+        %tmp.50 = lgetv %centerX.1;
+        symbol [ centerX %tmp.50 45 26 33 ];
+        %tmp.51 = lgetv %centerY.2;
+        symbol [ centerY %tmp.51 45 35 42 ];
+        %tmp.52 = lgetv %radius.3;
+        symbol [ radius %tmp.52 45 44 50 ];
+        invoke %tmp.47 %tmp.48(%tmp.49, %tmp.50, %tmp.51, %tmp.52);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 48 8 ]
+        %tmp.53 = self;
+        symbol [ drawHeartRate %tmp.54 48 8 21 ];
+        %tmp.54 = getv function %tmp.53 :drawHeartRate;
+        %tmp.55 = lgetv %dc;
+        symbol [ dc %tmp.55 48 22 24 ];
+        %tmp.56 = lgetv %centerX.1;
+        symbol [ centerX %tmp.56 48 26 33 ];
+        %tmp.57 = lgetv %centerY.2;
+        symbol [ centerY %tmp.57 48 35 42 ];
+        %tmp.58 = lgetv %radius.3;
+        symbol [ radius %tmp.58 48 44 50 ];
+        invoke %tmp.53 %tmp.54(%tmp.55, %tmp.56, %tmp.57, %tmp.58);
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_23_40_49_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 53; @symbol_functiondef = [drawHeartRate,53,13,26]; @symbol_param<0> = [dc,53,27,29]; @symbol_param<0>_type<0> = [Dc,53,33,35]; @symbol_param<1> = [centerX,53,37,44]; @symbol_param<1>_type<0> = [Number,53,48,54]; @symbol_param<2> = [centerY,53,56,63]; @symbol_param<2>_type<0> = [Number,53,67,73]; @symbol_param<3> = [radius,53,75,81]; @symbol_param<3>_type<0> = [Number,53,85,91]; ]
+    function drawHeartRate(dc as Dc, centerX as Number, centerY as Number, radius as Number) as Void {
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_53_101_79_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 55 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_53_101_79_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_53_101_79_4_stop" ]
+        %heartRateStr.1 = local;
+        symbol [ heartRateStr %heartRateStr.1 55 12 24 ];
+        %tmp.1 = "--";
+        lputv %heartRateStr.1 %tmp.1;
+        symbol [ heartRateStr %heartRateStr.1 55 12 24 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 58 8 ]
+        try @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_beginTry @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_endTry @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_catch @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_finally;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_beginTry:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_12_63_8_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 59 12 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_12_63_8_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_12_63_8_stop" ]
+        %info.2 = local;
+        symbol [ info %info.2 59 16 20 ];
+        symbol [ ActivityMonitor %tmp.2 59 23 38 ];
+        %tmp.2 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.3 59 39 46 ];
+        %tmp.3 = getv function %tmp.2 :getInfo;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %info.2 %tmp.4;
+        symbol [ info %info.2 59 16 20 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 60 12 ]
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_stmt:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_16_60_98_begin:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_16_60_73_begin:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_16_60_42_begin:
+        %tmp.5 = lgetv %info.2;
+        symbol [ info %tmp.5 60 16 20 ];
+        %tmp.6 = null;
+        %tmp.7 = ne %tmp.5 %tmp.6;
+        bf %tmp.7 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_32_60_42_true:
+        %tmp.8 = lgetv %info.2;
+        symbol [ info %tmp.8 60 32 36 ];
+        %tmp.9 = as %tmp.8 { (!Null) };
+        %tmp.11 = const :heartRate;
+        symbol [ heartRate %tmp.11 60 42 51 const ];
+        %tmp.12 = canhazplz %tmp.9 %tmp.11;
+        push %tmp.12;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_32_60_42_end:
+        %tmp.13 = phi [%tmp.7 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_16_60_42_begin] [%tmp.12 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_32_60_42_true] [%tmp.13 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_32_60_42_end];
+        bf %tmp.13 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_55_60_73_true:
+        %tmp.14 = lgetv %info.2;
+        symbol [ info %tmp.14 60 55 59 ];
+        %tmp.15 = as %tmp.14 { (interface { var heartRate; }) && (!Null) };
+        symbol [ heartRate %tmp.16 60 60 69 ];
+        %tmp.16 = getv %tmp.15 :heartRate;
+        %tmp.17 = null;
+        %tmp.18 = ne %tmp.16 %tmp.17;
+        push %tmp.18;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_55_60_73_end:
+        %tmp.19 = phi [%tmp.13 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_16_60_73_begin] [%tmp.18 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_55_60_73_true] [%tmp.19 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_55_60_73_end];
+        bf %tmp.19 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_81_60_98_true:
+        %tmp.20 = lgetv %info.2;
+        symbol [ info %tmp.20 60 81 85 ];
+        %tmp.21 = as %tmp.20 { (interface { var heartRate; }) && (!Null) };
+        symbol [ heartRate %tmp.22 60 86 95 ];
+        %tmp.22 = getv %tmp.21 :heartRate;
+        %tmp.23 = 0;
+        %tmp.24 = gt %tmp.22 %tmp.23;
+        push %tmp.24;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_81_60_98_end:
+        %tmp.25 = phi [%tmp.19 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_16_60_98_begin] [%tmp.24 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_81_60_98_true] [%tmp.25 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_81_60_98_end];
+        bf %tmp.25 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_true:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_101_62_12_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 61 16 ]
+        %tmp.26 = lgetv %info.2;
+        symbol [ info %tmp.26 61 31 35 ];
+        %tmp.27 = as %tmp.26 { (interface { var heartRate; }) && (!Null) };
+        symbol [ heartRate %tmp.28 61 36 45 ];
+        %tmp.28 = getv %tmp.27 :heartRate;
+        symbol [ format %tmp.29 61 46 52 ];
+        %tmp.29 = getv function %tmp.28 :format;
+        %tmp.30 = "%d";
+        %tmp.31 = invoke %tmp.28 %tmp.29(%tmp.30);
+        lputv %heartRateStr.1 %tmp.31;
+        symbol [ heartRateStr %heartRateStr.1 61 16 28 ];
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_101_62_12_stop:
+        goto @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_60_12_62_12_if_end:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_12_63_8_stop:
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_endTry:
+        jsr @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_finally;
+        goto @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_catch:
+        %tmp.32 = exception;
+        push %tmp.32;
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 63 10 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_catch" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_63_10_65_8_end" ]
+        %ex.3 = local;
+        symbol [ ex %ex.3 63 16 18 ];
+        %tmp.33 = dup %tmp.32;
+        lputv %ex.3 %tmp.33;
+        symbol [ ex %ex.3 63 16 18 ];
+        jsr @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_finally;
+        pop;
+        goto @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_63_10_65_8_end:
+        try @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_catch @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_63_10_65_8_end @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_63_10_65_8_end @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_finally;
+        jsr @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_finally;
+        throw %tmp.32;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_finally:
+        jsrret;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_58_8_65_8_end:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 68 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_53_101_79_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_53_101_79_4_stop" ]
+        %yPosition.4 = local;
+        symbol [ yPosition %yPosition.4 68 12 21 ];
+        %tmp.34 = lgetv %centerY;
+        symbol [ centerY %tmp.34 68 24 31 ];
+        %tmp.35 = 20;
+        %tmp.36 = add %tmp.34 %tmp.35;
+        lputv %yPosition.4 %tmp.36;
+        symbol [ yPosition %yPosition.4 68 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 71 8 ]
+        %tmp.37 = lgetv %dc;
+        symbol [ dc %tmp.37 71 8 10 ];
+        symbol [ setColor %tmp.38 71 11 19 ];
+        %tmp.38 = getv function %tmp.37 :setColor;
+        symbol [ COLOR_METALLIC_GREY %tmp.40 71 20 39 ];
+        %tmp.40 = getv ? :COLOR_METALLIC_GREY;
+        symbol [ Graphics %tmp.41 71 41 49 ];
+        %tmp.41 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.42 71 50 67 ];
+        %tmp.42 = getv %tmp.41 :COLOR_TRANSPARENT;
+        invoke %tmp.37 %tmp.38(%tmp.40, %tmp.42);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 72 8 ]
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 72 8 10 ];
+        symbol [ drawText %tmp.44 72 11 19 ];
+        %tmp.44 = getv function %tmp.43 :drawText;
+        %tmp.45 = lgetv %centerX;
+        symbol [ centerX %tmp.45 73 12 19 ];
+        %tmp.46 = lgetv %yPosition.4;
+        symbol [ yPosition %tmp.46 74 12 21 ];
+        symbol [ Graphics %tmp.47 75 12 20 ];
+        %tmp.47 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.48 75 21 30 ];
+        %tmp.48 = getv %tmp.47 :FONT_TINY;
+        %tmp.49 = "♥ ";
+        %tmp.50 = lgetv %heartRateStr.1;
+        symbol [ heartRateStr %tmp.50 76 19 31 ];
+        %tmp.51 = add %tmp.49 %tmp.50;
+        symbol [ Graphics %tmp.52 77 12 20 ];
+        %tmp.52 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.53 77 21 40 ];
+        %tmp.53 = getv %tmp.52 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.43 %tmp.44(%tmp.45, %tmp.46, %tmp.48, %tmp.51, %tmp.53);
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_53_101_79_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 82; @symbol_functiondef = [drawBatteryIcon,82,13,28]; @symbol_param<0> = [dc,82,29,31]; @symbol_param<0>_type<0> = [Dc,82,35,37]; @symbol_param<1> = [centerX,82,39,46]; @symbol_param<1>_type<0> = [Number,82,50,56]; @symbol_param<2> = [centerY,82,58,65]; @symbol_param<2>_type<0> = [Number,82,69,75]; @symbol_param<3> = [radius,82,77,83]; @symbol_param<3>_type<0> = [Number,82,87,93]; ]
+    function drawBatteryIcon(dc as Dc, centerX as Number, centerY as Number, radius as Number) as Void {
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 83 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_stop" ]
+        %stats.1 = local;
+        symbol [ stats %stats.1 83 12 17 ];
+        symbol [ System %tmp.1 83 20 26 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getSystemStats %tmp.2 83 27 41 ];
+        %tmp.2 = getv function %tmp.1 :getSystemStats;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %stats.1 %tmp.3;
+        symbol [ stats %stats.1 83 12 17 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 84 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_stop" ]
+        %batteryPct.2 = local;
+        symbol [ batteryPct %batteryPct.2 84 12 22 ];
+        %tmp.4 = lgetv %stats.1;
+        symbol [ stats %tmp.4 84 25 30 ];
+        symbol [ battery %tmp.5 84 31 38 ];
+        %tmp.5 = getv %tmp.4 :battery;
+        symbol [ format %tmp.6 84 39 45 ];
+        %tmp.6 = getv function %tmp.5 :format;
+        %tmp.7 = "%d";
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        %tmp.9 = "%";
+        %tmp.10 = add %tmp.8 %tmp.9;
+        lputv %batteryPct.2 %tmp.10;
+        symbol [ batteryPct %batteryPct.2 84 12 22 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 85 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_stop" ]
+        %batteryText.3 = local;
+        symbol [ batteryText %batteryText.3 85 12 23 ];
+        %tmp.11 = lgetv %batteryPct.2;
+        symbol [ batteryPct %tmp.11 85 26 36 ];
+        lputv %batteryText.3 %tmp.11;
+        symbol [ batteryText %batteryText.3 85 12 23 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 87 8 ]
+        %tmp.12 = lgetv %dc;
+        symbol [ dc %tmp.12 87 8 10 ];
+        symbol [ setColor %tmp.13 87 11 19 ];
+        %tmp.13 = getv function %tmp.12 :setColor;
+        symbol [ COLOR_LIGHT_ORANGE %tmp.15 87 20 38 ];
+        %tmp.15 = getv ? :COLOR_LIGHT_ORANGE;
+        symbol [ Graphics %tmp.16 87 40 48 ];
+        %tmp.16 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.17 87 49 66 ];
+        %tmp.17 = getv %tmp.16 :COLOR_TRANSPARENT;
+        invoke %tmp.12 %tmp.13(%tmp.15, %tmp.17);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 88 8 ]
+        %tmp.18 = lgetv %dc;
+        symbol [ dc %tmp.18 88 8 10 ];
+        symbol [ drawText %tmp.19 88 11 19 ];
+        %tmp.19 = getv function %tmp.18 :drawText;
+        %tmp.20 = lgetv %centerX;
+        symbol [ centerX %tmp.20 89 12 19 ];
+        %tmp.21 = lgetv %centerY;
+        symbol [ centerY %tmp.21 90 12 19 ];
+        %tmp.22 = lgetv %radius;
+        symbol [ radius %tmp.22 90 22 28 ];
+        %tmp.23 = sub %tmp.21 %tmp.22;
+        %tmp.24 = 20;
+        %tmp.25 = add %tmp.23 %tmp.24;
+        symbol [ Graphics %tmp.26 91 12 20 ];
+        %tmp.26 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.27 91 21 30 ];
+        %tmp.27 = getv %tmp.26 :FONT_TINY;
+        %tmp.28 = lgetv %batteryText.3;
+        symbol [ batteryText %tmp.28 92 12 23 ];
+        symbol [ Graphics %tmp.29 93 12 20 ];
+        %tmp.29 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.30 93 21 40 ];
+        %tmp.30 = getv %tmp.29 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.18 %tmp.19(%tmp.20, %tmp.25, %tmp.27, %tmp.28, %tmp.30);
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_82_103_95_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 98; @symbol_functiondef = [drawStepsIcon,98,13,26]; @symbol_param<0> = [dc,98,27,29]; @symbol_param<0>_type<0> = [Dc,98,33,35]; @symbol_param<1> = [centerX,98,37,44]; @symbol_param<1>_type<0> = [Number,98,48,54]; @symbol_param<2> = [centerY,98,56,63]; @symbol_param<2>_type<0> = [Number,98,67,73]; @symbol_param<3> = [radius,98,75,81]; @symbol_param<3>_type<0> = [Number,98,85,91]; ]
+    function drawStepsIcon(dc as Dc, centerX as Number, centerY as Number, radius as Number) as Void {
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 99 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_stop" ]
+        %info.1 = local;
+        symbol [ info %info.1 99 12 16 ];
+        symbol [ ActivityMonitor %tmp.1 99 19 34 ];
+        %tmp.1 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.2 99 35 42 ];
+        %tmp.2 = getv function %tmp.1 :getInfo;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %info.1 %tmp.3;
+        symbol [ info %info.1 99 12 16 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 100 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_stop" ]
+        %stepCount.2 = local;
+        symbol [ stepCount %stepCount.2 100 12 21 ];
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_begin:
+        %tmp.4 = lgetv %info.1;
+        symbol [ info %tmp.4 100 24 28 ];
+        %tmp.5 = null;
+        %tmp.6 = ne %tmp.4 %tmp.5;
+        bf %tmp.6 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_false;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_true:
+        %tmp.7 = lgetv %info.1;
+        symbol [ info %tmp.7 100 39 43 ];
+        %tmp.8 = as %tmp.7 { (!Null) };
+        symbol [ steps %tmp.9 100 44 49 ];
+        %tmp.9 = getv %tmp.8 :steps;
+        push %tmp.9;
+        goto @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_end;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_false:
+        %tmp.10 = 0;
+        push %tmp.10;
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_end:
+        %tmp.11 = phi [%tmp.6 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_begin] [%tmp.9 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_true] [%tmp.10 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_false] [%tmp.11 @_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_100_24_100_52_end];
+        lputv %stepCount.2 %tmp.11;
+        symbol [ stepCount %stepCount.2 100 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 101 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_start" "_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_stop" ]
+        %stepsText.3 = local;
+        symbol [ stepsText %stepsText.3 101 12 21 ];
+        %tmp.12 = lgetv %stepCount.2;
+        symbol [ stepCount %tmp.12 101 24 33 ];
+        symbol [ toString %tmp.13 101 34 42 ];
+        %tmp.13 = getv function %tmp.12 :toString;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        lputv %stepsText.3 %tmp.14;
+        symbol [ stepsText %stepsText.3 101 12 21 ];
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 103 8 ]
+        %tmp.15 = lgetv %dc;
+        symbol [ dc %tmp.15 103 8 10 ];
+        symbol [ setColor %tmp.16 103 11 19 ];
+        %tmp.16 = getv function %tmp.15 :setColor;
+        symbol [ COLOR_METALLIC_GREY %tmp.18 103 20 39 ];
+        %tmp.18 = getv ? :COLOR_METALLIC_GREY;
+        symbol [ Graphics %tmp.19 103 41 49 ];
+        %tmp.19 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.20 103 50 67 ];
+        %tmp.20 = getv %tmp.19 :COLOR_TRANSPARENT;
+        invoke %tmp.15 %tmp.16(%tmp.18, %tmp.20);
+[ "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc" 104 8 ]
+        %tmp.21 = lgetv %dc;
+        symbol [ dc %tmp.21 104 8 10 ];
+        symbol [ drawText %tmp.22 104 11 19 ];
+        %tmp.22 = getv function %tmp.21 :drawText;
+        %tmp.23 = lgetv %centerX;
+        symbol [ centerX %tmp.23 105 12 19 ];
+        %tmp.24 = lgetv %centerY;
+        symbol [ centerY %tmp.24 106 12 19 ];
+        %tmp.25 = lgetv %radius;
+        symbol [ radius %tmp.25 106 22 28 ];
+        %tmp.26 = sub %tmp.24 %tmp.25;
+        %tmp.27 = 60;
+        %tmp.28 = add %tmp.26 %tmp.27;
+        symbol [ Graphics %tmp.29 107 12 20 ];
+        %tmp.29 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.30 107 21 30 ];
+        %tmp.30 = getv %tmp.29 :FONT_TINY;
+        %tmp.31 = lgetv %stepsText.3;
+        symbol [ stepsText %tmp.31 108 12 21 ];
+        symbol [ Graphics %tmp.32 109 12 20 ];
+        %tmp.32 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.33 109 21 40 ];
+        %tmp.33 = getv %tmp.32 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.21 %tmp.22(%tmp.23, %tmp.28, %tmp.30, %tmp.31, %tmp.33);
+_Users_michal_github_GarminWatchFace_source_GarminWatchFaceView_mc_98_101_111_4_stop:
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 114; @symbol_functiondef = [onLayout,114,13,21]; @symbol_param<0> = [dc,114,22,24]; @symbol_param<0>_type<0> = [Dc,114,28,30]; ]
+    function onLayout(dc as Dc) as Void {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 115; @symbol_functiondef = [onShow,115,13,19]; ]
+    function onShow() as Void {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 116; @symbol_functiondef = [onHide,116,13,19]; ]
+    function onHide() as Void {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 117; @symbol_functiondef = [onExitSleep,117,13,24]; ]
+    function onExitSleep() as Void {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 118; @symbol_functiondef = [onEnterSleep,118,13,25]; ]
+    function onEnterSleep() as Void {
+    }
+}
+[ @file = "/Users/michal/github/GarminWatchFace/source/GarminWatchFaceView.mc"; @line = 1; ]
+<init> {
+}

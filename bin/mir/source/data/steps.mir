@@ -1,0 +1,52 @@
+[ @file = "/Users/michal/github/GarminWatchFace/source/data/steps.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [ActivityMonitor,1,14,29]; ]
+import Toybox.ActivityMonitor;
+[ @file = "/Users/michal/github/GarminWatchFace/source/data/steps.mc"; @line = 6; @symbol_classdef = [StepsData,6,6,15]; ]
+class StepsData {
+    [ @file = "/Users/michal/github/GarminWatchFace/source/data/steps.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/data/steps.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/michal/github/GarminWatchFace/source/data/steps.mc"; @line = 7; @symbol_functiondef = [getStepCount,7,13,25]; @symbol_return<0> = [Number,7,31,37]; ]
+    function getStepCount() as Number {
+_Users_michal_github_GarminWatchFace_source_data_steps_mc_7_38_10_4_start:
+[ "/Users/michal/github/GarminWatchFace/source/data/steps.mc" 8 8 ]
+        [ "_Users_michal_github_GarminWatchFace_source_data_steps_mc_7_38_10_4_start" "_Users_michal_github_GarminWatchFace_source_data_steps_mc_7_38_10_4_stop" ]
+        %info.1 = local;
+        symbol [ info %info.1 8 12 16 ];
+        symbol [ ActivityMonitor %tmp.1 8 19 34 ];
+        %tmp.1 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.2 8 35 42 ];
+        %tmp.2 = getv function %tmp.1 :getInfo;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %info.1 %tmp.3;
+        symbol [ info %info.1 8 12 16 ];
+[ "/Users/michal/github/GarminWatchFace/source/data/steps.mc" 9 8 ]
+_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_begin:
+        %tmp.4 = lgetv %info.1;
+        symbol [ info %tmp.4 9 15 19 ];
+        %tmp.5 = null;
+        %tmp.6 = ne %tmp.4 %tmp.5;
+        bf %tmp.6 @_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_false;
+_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_true:
+        %tmp.7 = lgetv %info.1;
+        symbol [ info %tmp.7 9 30 34 ];
+        %tmp.8 = as %tmp.7 { (!Null) };
+        symbol [ steps %tmp.9 9 35 40 ];
+        %tmp.9 = getv %tmp.8 :steps;
+        push %tmp.9;
+        goto @_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_end;
+_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_false:
+        %tmp.10 = 0;
+        push %tmp.10;
+_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_end:
+        %tmp.11 = phi [%tmp.6 @_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_begin] [%tmp.9 @_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_true] [%tmp.10 @_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_false] [%tmp.11 @_Users_michal_github_GarminWatchFace_source_data_steps_mc_9_15_9_43_end];
+        ret %tmp.11;
+_Users_michal_github_GarminWatchFace_source_data_steps_mc_7_38_10_4_stop:
+    }
+}
+[ @file = "/Users/michal/github/GarminWatchFace/source/data/steps.mc"; @line = 1; ]
+<init> {
+}
