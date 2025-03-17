@@ -7,9 +7,10 @@ class WatchHandsView {
     const COLOR_LIGHT_GREY = 0xD3D3D3;
     const COLOR_RED = 0xFF0000;
     const COLOR_GREY_METALLIC = 0xA9A9A9; // Grey metallic color
+    const COLOR_DIM_ORANGE = 0xBB7A00;    // A dimmer version of the orange color
     
     // Special marker size constant - easy to adjust
-    const SPECIAL_MARKER_SIZE = 26;  // 1.3x larger than before (was 20)
+    const SPECIAL_MARKER_SIZE = 29;  // 10% larger than before (was 26)
 
     // Draw the analog hands and markers
     function drawHands(dc as Dc, centerX, centerY, radius, hours, minutes, seconds) as Void {
@@ -40,49 +41,87 @@ class WatchHandsView {
         if (dc has :setAntiAlias) {
             dc.setAntiAlias(false);
         }
+
+        drawBatteryElevationIndicators(dc, centerX, centerY);
     }
 
     // Draw hour markers around the watch face
     function drawHourMarkers(dc as Dc, centerX, centerY, radius) as Void {
-        // Draw regular dot markers for most positions
+        // Draw hour markers (larger dots) at the very edge
         for (var i = 0; i < 12; i++) {
-            // Skip positions 3, 6, and 9
-            if (i == 3 || i == 6 || i == 9) {
-                // Draw special markers at these positions instead
-                drawSpecialHourMarker(dc, centerX, centerY, radius, i);
+            var angle = i * 30 * Math.PI / 180;
+            // Move dots to the very edge (just 5px from edge)
+            var markerX = centerX + (radius - 5) * Math.sin(angle);
+            var markerY = centerY - (radius - 5) * Math.cos(angle);
+            
+            // Draw alternating dot styles: GREY for even, GREY with Black center for odd
+            dc.setColor(COLOR_GREY_METALLIC, Graphics.COLOR_BLACK);
+            dc.fillCircle(markerX, markerY, 4);
+            
+            if (i % 2 == 1) {  // Odd positions (1, 3, 5, 7, 9, 11)
+                // Add black center to create transparent/hollow look
+                dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+                dc.fillCircle(markerX, markerY, 2);
+            }
+            
+            // Draw the 3 smaller dots between each hour position
+            drawMinuteDots(dc, centerX, centerY, radius, i);
+        }
+        
+        // Draw hour numbers in a separate loop to ensure consistent positioning
+        // and separation from the dots
+        drawHourNumbers(dc, centerX, centerY, radius);
+    }
+    
+    // Draw hour numbers in a separate function for better organization
+    function drawHourNumbers(dc as Dc, centerX, centerY, radius) as Void {
+        // Apply a global vertical shift to move all numbers up
+        var verticalShift = 14;
+        
+        for (var i = 0; i < 12; i++) {
+            // Skip positions 3 and 9 (where date and steps will be)
+            if (i == 3 || i == 9) {
                 continue;
             }
             
             var angle = i * 30 * Math.PI / 180;
-            // Move markers slightly closer to center 
-            var markerX = centerX + (radius - 15) * Math.sin(angle);
-            var markerY = centerY - (radius - 15) * Math.cos(angle);
-
-            // Draw each marker with white on black
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-            dc.fillCircle(markerX, markerY, 3);
+            
+            // Position numbers closer to the edge dots (but not too close)
+            var numberDistance = radius * 0.78; 
+            var numX = centerX + numberDistance * Math.sin(angle);
+            var numY = centerY - numberDistance * Math.cos(angle) - verticalShift;
+            
+            // Convert to 12-hour format
+            var hourNum = (i == 0) ? 12 : i;
+            
+            // Use dimmer orange color
+            dc.setColor(COLOR_DIM_ORANGE, Graphics.COLOR_TRANSPARENT);
+            
+            // Draw the hour number
+            dc.drawText(
+                numX,
+                numY - 3,
+                Graphics.FONT_TINY, // Use FONT_TINY to ensure compatibility
+                hourNum.toString(),
+                Graphics.TEXT_JUSTIFY_CENTER
+            );
         }
     }
-
-    // Draw special hour markers at 3, 6, and 9 with red borders
-    function drawSpecialHourMarker(dc as Dc, centerX, centerY, radius, position) as Void {
-        var angle = position * 30 * Math.PI / 180;
-        // Move special markers more toward the center
-        var markerX = centerX + (radius - 25) * Math.sin(angle);
-        var markerY = centerY - (radius - 25) * Math.cos(angle);
+    
+    // Draw minute dots (3 small dots between each hour marker)
+    function drawMinuteDots(dc as Dc, centerX, centerY, radius, hourPosition) as Void {
+        var startAngle = hourPosition * 30;
         
-        var markerRadius = SPECIAL_MARKER_SIZE; // Using our constant for size
-        var borderWidth = 3;
-        
-        // Red border only - no gradient
-        dc.setColor(COLOR_RED, Graphics.COLOR_BLACK);
-        dc.drawCircle(markerX, markerY, markerRadius);
-        dc.drawCircle(markerX, markerY, markerRadius-1);
-        dc.drawCircle(markerX, markerY, markerRadius-2);
-        
-        // Clear center for future number placement
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-        dc.fillCircle(markerX, markerY, markerRadius - borderWidth);
+        for (var i = 1; i <= 3; i++) {
+            var angle = (startAngle + i * 7.5) * Math.PI / 180; // 7.5 degrees = 30/4
+            // Move minute dots to the edge as well
+            var dotX = centerX + (radius - 5) * Math.sin(angle);
+            var dotY = centerY - (radius - 5) * Math.cos(angle);
+            
+            // Draw a small grey dot
+            dc.setColor(COLOR_GREY_METALLIC, Graphics.COLOR_BLACK);
+            dc.fillCircle(dotX, dotY, 1);
+        }
     }
 
     // Draw a smooth hour hand using a polygon
@@ -259,5 +298,18 @@ class WatchHandsView {
         // Innermost dot
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.fillCircle(centerX, centerY, 2);
+    }
+
+    // Add a new function to draw simple shape-based battery/elevation indicators
+    function drawBatteryElevationIndicators(dc as Dc, centerX, centerY) as Void {
+        // Battery indicator: move it a tiny bit down
+        var batteryOffsetY = 5;
+        dc.setColor(COLOR_GREY_METALLIC, Graphics.COLOR_BLACK);
+        dc.fillCircle(centerX, centerY + batteryOffsetY, 3);
+
+        // Elevation indicator: move it a tiny bit up
+        var elevationOffsetY = -5;
+        dc.setColor(COLOR_DIM_ORANGE, Graphics.COLOR_BLACK);
+        dc.fillCircle(centerX, centerY + elevationOffsetY, 3);
     }
 }

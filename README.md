@@ -1,3 +1,26 @@
+# Garmin Watch Face
+
+## Overview
+This project contains a custom Garmin watch face built with Monkey C.
+
+## Requirements
+- Garmin Connect IQ SDK
+- Compatible Garmin device
+
+## Building
+1. Open the project in Garmin Connect IQ IDE.
+2. Build the application using the provided manifest.
+
+## Deployment
+1. Connect your Garmin device via USB or use Garmin Express.
+2. Deploy the .prg file to your device.
+3. Select the watch face from the device settings.
+
+## Features
+- Custom hour, minute, and second hands.
+- Battery and elevation indicators.
+- Steps, date, and optional solar + weather info.
+
 # Elegant Analog Garmin Watch Face
 
 A sophisticated analog watch face for Garmin devices, featuring elegant hands, special hour markers, and important fitness metrics.
